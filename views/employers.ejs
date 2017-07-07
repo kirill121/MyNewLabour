@@ -1,0 +1,17 @@
+<% include partials/header %>
+
+<h1>Employer Database</h1>
+
+<% employers.forEach( employer => { %>
+	<ul>
+		<li>Employer Name: <%= employer.firstName %> </li>
+		<li>Employer Surname: <%= employer.lastName %> </li>
+		<li>Employer Email: <%= employer.email %> </li>
+		<li>Employer Company Name: <%= employer.companyName %> </li>
+		<a href="/employers/<%= employer.id %>"><button>View Employee</button></a>   
+	</ul>
+<%})%>
+
+
+
+<% include partials/footer %>

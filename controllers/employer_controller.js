@@ -37,6 +37,7 @@ module.exports = {
 			firstName: req.body.name,
 			lastName: req.body.surname,
 			email: req.body.email,
+			password: req.body.password,
 			companyName: req.body.companyName
 		}, (err, add) => {
 			if(err){
