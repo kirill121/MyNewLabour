@@ -1,0 +1,58 @@
+<% include partials/header %>
+
+<h1>Registration Of Employee</h1>
+
+
+<form method="POST" action="/employees/add">
+
+<div>
+	<label>Manual Labour</label>
+	<input type="radio" name="labour" value="Manual Labour">
+	<label>Bricklayer</label>
+	<input type="radio" name="labour" value="Bricklayer">
+	<label>Painter</label>
+	<input type="radio" name="labour" value="Painter">		
+</div>
+
+
+	<label>First Name</label>
+	<input name="name" type="text" placeholder="Name" required>
+	<label>Last Name</label>
+	<input name="surname" type="text" placeholder="Surname" required>
+
+
+<div>
+	<label for="email">Email</label>
+	<input name="email" type="email" placeholder="your email" required>
+	<label for="password">Password</label>
+	<input name="password" type="password" pattern=".{5,10}" required title="password must be at least 5 - 10 characters long">
+</div>
+
+
+<div>
+	<label for="birthday">Enter your date of birth</label>
+	<select name="day">
+		<option>Day</option>
+		<option>2</option>
+		<option>3</option>
+		<option>4</option>
+	</select>
+	<select name="month">
+		<option>Month</option>
+		<option>February</option>
+		<option>March</option>
+		<option>April</option>
+	</select>
+	<select name="year">
+		<option>Year</option>
+		<option>1989</option>
+		<option>1990</option>
+		<option>1991</option>
+	</select>
+</div>
+
+<input type="submit" name="Submit">
+
+</form>
+
+<% include partials/footer %>	

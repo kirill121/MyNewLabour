@@ -1,0 +1,32 @@
+<% include partials/header %>
+  
+  <form method="POST" action="/employees/update/<%= employee.id %>">
+
+<div>
+  <label for="Manual Labour">Manual Labour</label>
+  <input id="Manual Labour" type="radio" name="labour" value="<%= employee.labourType%>">
+  <label for="Bricklayer">Bricklayer</label>
+  <input id="Bricklayer" type="radio" name="labour" value="<%= employee.labourType%>">
+  <label for="Painter">Painter</label>
+  <input id="Painer" type="radio" name="labour" value="<%= employee.labourType%>">    
+</div>
+
+
+  <label for="first">First Name</label>
+  <input name="name" id="first" type="text" placeholder="Name" required value="<%= employee.name %>">
+  <label for="second">Last Name</label>
+  <input name="surname" id="second" type="text" placeholder="Surname" required value="<%= employee.surname %>">
+
+
+<div>
+  <label for="email">Email</label>
+  <input name="email" type="email" placeholder="your email" required value="<%= employee.email %>">
+  <label for="password">Password</label>
+  <input name="password" type="password" pattern=".{5,10}" required title="password must be at least 5 - 10 characters long" value="<%= employee.password %>">
+</div>
+
+
+<input type="submit" name="Submit Update">
+</form>
+
+<% include partials/header %>
