@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-const employees = require('./routes/routes');
+const routeBuilder = require('./routes/routes');
 const mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost/employee_database', {
@@ -18,7 +18,11 @@ app.get('/', function(req, res) {
 	res.render('home');
 });
 
+var employees = routeBuilder(require('./controllers/employee_controller'))
 app.use('/employees', employees);
+
+var employers = routeBuilder(require('./controllers/employer_controller'))
+app.use('/employers', employers);
 
 app.listen(3000, function(){
 	console.log('server is up and running!');

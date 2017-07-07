@@ -2,7 +2,7 @@ const Employee = require('../models/employees');
 
 module.exports = {
 
-	viewEmployees: function(req, res) {
+	viewAll: function(req, res) {
 		Employee.find({}, (err, employees) => {
 			if(err) { 
 				console.log(err)
@@ -10,11 +10,11 @@ module.exports = {
 		})
 	},
 
-	viewAddEmployee: function(req, res) {
+	viewAdd: function(req, res) {
 		res.render('add');
 	},
 
-	viewEmployee: function(req, res) {
+	viewSpecific: function(req, res) {
 		var employeeid = req.params.id;
 		Employee.findById(employeeid, (err, employee) => {
 			if(err){
@@ -23,7 +23,7 @@ module.exports = {
 		})
 	},
 
-	viewUpdateEmployee: function(req, res) {
+	viewUpdate: function(req, res) {
 		var employeeid = req.params.id;
 		Employee.findById(employeeid, (err, employee) => {
 			if(err){
@@ -32,7 +32,7 @@ module.exports = {
 		})
 	},
 
-	addEmployee: function(req, res) {
+	add: function(req, res) {
 		Employee.create({
 			labourType: req.body.labour,
 			firstName: req.body.name,
@@ -49,7 +49,7 @@ module.exports = {
 		})
 	},
 
-	updateEmployee: function(req, res) {
+	update: function(req, res) {
 		var employeeid = req.params.id;
 		Employee.findByIdAndUpdate(employeeid, {
 			labourType: req.body.labour,
@@ -64,7 +64,7 @@ module.exports = {
 		})
 	},
 
-	deleteEmployee: function(req, res) {
+	delete: function(req, res) {
 		var employeeid = req.params.id;
 		Employee.findByIdAndRemove(employeeid, (err) => {
 			if(err){

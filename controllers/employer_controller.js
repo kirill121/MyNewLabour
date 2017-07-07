@@ -2,7 +2,7 @@ const Employer = require('../models/employers');
 
 module.exports = {
 
-	viewEmployers: function(req, res){
+	viewAll: function(req, res){
 		Employer.find({}, (err, employers) => {
 			if(err){
 				console.log(err);
@@ -10,7 +10,7 @@ module.exports = {
 		});
 	},
 
-	viewEmployer: function(req, res){
+	viewSpecific: function(req, res){
 		var employerId = req.params.id;
 		Employer.findById(employerId, (err, employer) => {
 			if(err){
@@ -19,11 +19,11 @@ module.exports = {
 		});
 	},
 
-	viewAddEmployer: function(req, res){
+	viewAdd: function(req, res){
 		res.render('addEmployer')
 	},
 
-	viewUpdateEmployer: function(req, res){
+	viewUpdate: function(req, res){
 		var employerId = req.params.id;
 		Employer.findById(employerId, (err, employer) => {
 			if(err){
@@ -32,7 +32,7 @@ module.exports = {
 		});
 	},
 
-	addEmployer: function(req, res){
+	add: function(req, res){
 		Employer.create({
 			firstName: req.body.name,
 			lastName: req.body.surname,
@@ -45,7 +45,7 @@ module.exports = {
 		})
 	},
 
-	updateEmployer: function (req, res){
+	update: function (req, res){
 		var employerId = req.params.id;
 		Employer.findByIdAndUpdate(employerId, {
 			firstName: req.body.name,
@@ -59,12 +59,12 @@ module.exports = {
 		})
 	},
 
-	deleteEmployer: function(req, res){
+	delete: function(req, res){
 		var employerId = req.params.id;
 		Employer.findByIdAndRemove(employerId, (err) => {
 			if(err){
 				console.log(err)
-			} else { res.redirect{'/employers'} }
+			} else { res.redirect('/employers') }
 		})
 	}
 };

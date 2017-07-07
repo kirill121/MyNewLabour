@@ -1,26 +1,18 @@
-const express = require('express');
-const router = express.Router();
-const employeeController = require('../controllers/employee_controller');
-const employerController = require('../controllers/employer_controller');
+function routerBuilder(controller) {	
+	const express = require('express');
+	const router = express.Router();
 
-router.get('/', employeeController.viewEmployees);
-router.get('/add', employeeController.viewAddEmployee);
-router.get('/:id', employeeController.viewEmployee);
-router.get('/update/:id', employeeController.viewUpdateEmployee);
+	router.get('/', controller.viewAll);
+	router.get('/add', controller.viewAdd);
+	router.get('/:id', controller.viewSpecific);
+	router.get('/update/:id', controller.viewUpdate);
 
-router.post('/add', employeeController.addEmployee);
-router.post('/update/:id', employeeController.updateEmployee);
-router.post('/delete/:id', employeeController.deleteEmployee);
+	router.post('/add', controller.add);
+	router.post('/update/:id', controller.update);
+	router.post('/delete/:id', controller.delete);
 
+	return router;
+}
 
-router.get('/employers', employerController.viewEmployer);
-router.get('/employers/add', employerController.viewAddEmployer);
-router.get('/employers/:id', employerController.viewEmployer);
-router.get('/employers/update/:id', employerController)
-
-router.post('/employers/add', employerController.addEmployers);
-router.post('/employers/update/:id', employerController.updateEmployer);
-router.post('/delete/:id', employerController.deleteEmployer);
-
-module.exports = router;
+module.exports = routerBuilder;
 
