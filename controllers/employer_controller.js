@@ -60,6 +60,11 @@ module.exports = {
 	},
 
 	deleteEmployer: function(req, res){
-
+		var employerId = req.params.id;
+		Employer.findByIdAndRemove(employerId, (err) => {
+			if(err){
+				console.log(err)
+			} else { res.redirect{'/employers'} }
+		})
 	}
 };
