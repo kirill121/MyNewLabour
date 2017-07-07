@@ -18,6 +18,14 @@ app.get('/', function(req, res) {
 	res.render('home');
 });
 
+app.get('/employerHome', (req, res) => {
+	res.render('employerHome')
+});
+
+app.get('/employeeHome', (req, res) => {
+	res.render('employeeHome')
+});
+
 var employees = routeBuilder(require('./controllers/employee_controller'))
 app.use('/employees', employees);
 
