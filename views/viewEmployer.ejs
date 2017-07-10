@@ -1,0 +1,19 @@
+<% include partials/header %>
+
+<h1>Employer with ID <%= employer.id %></h1>
+
+	<ul>
+
+		<li>Employer Name: <%= employer.firstName %></li>
+		<li>Employer Surname: <%= employer.lastName %></li>
+		<li>Employer Email: <%= employer.email %></li>
+		<li>Employer Company: <%= employer.company %></li>
+		<a href='/employers/update/<%= employer.id %>'><button>Update Employer</button></a>
+		<form method='post' action='/employees/delete/<%= employee.id %>'>
+        <a href="/employees/delete/<%= employer.id %>"><button>Delete Employer</button></a>
+        </form>
+
+	</ul>	
+
+
+<% include partials/footer %>
