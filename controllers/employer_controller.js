@@ -52,7 +52,7 @@ module.exports = {
 			firstName: req.body.name,
 			lastName: req.body.surname,
 			email: req.body.email,
-			compaanyName: req.body.companyName
+			companyName: req.body.companyName
 		}, (err, update) => {
 			if(err){
 				console.log(err)
