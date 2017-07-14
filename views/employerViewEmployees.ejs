@@ -1,6 +1,6 @@
 <% include partials/header %>
 
-<h1>Employee Database</h1>
+<h1>Employees For Hire</h1>
 
 
 <div>
@@ -15,8 +15,7 @@
         <li>Employee Email: <%= employee.email %> </li>
         <li>Employee Password: <%= employee.password %> </li>
         <li>Date Of Birth: <%= employee.day %> <%= employee.month %> <%= employee.year %> </li>
-        <li>Employer: <%= employee.employer %> </li>
-        <a href="/employees/view/<%= employee.id %>"><button>View Employee</button></a>          
+        <a href="/employers/<%= employerId %>/hireEmployee/<%= employee.id %>"><button>Hire Person</button></a>          
         <br>
         <hr>
 
@@ -36,8 +35,7 @@
         <li>Employee Email: <%= employee.email %> </li>
         <li>Employee Password: <%= employee.password %> </li>
         <li>Date Of Birth: <%= employee.day %> <%= employee.month %> <%= employee.year %> </li>
-        <li>Employer: <%= employee.employer %> </li>
-        <a href="/employees/view/<%= employee.id %>"><button>View Employee</button></a>          
+        <a href="/employers/<%= employerId %>/hireEmployee/<%= employee.id %>"><button>Hire person</button></a>          
         <br>
         <hr>
 
@@ -57,8 +55,7 @@
         <li>Employee Email: <%= employee.email %> </li>
         <li>Employee Password: <%= employee.password %> </li>
         <li>Date Of Birth: <%= employee.day %> <%= employee.month %> <%= employee.year %> </li>
-        <li>Employer: <%= employee.employer %> </li>
-        <a href="/employees/view/<%= employee.id %>"><button>View Employee</button></a>          
+        <a href="/employers/<%= employerId %>/hireEmployee/<%= employee.id %>"><button>Hire Person</button></a>          
         <br>
         <hr>
 

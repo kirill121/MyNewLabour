@@ -1,18 +1,19 @@
-function routerBuilder(controller) {	
-	const express = require('express');
-	const router = express.Router();
+const express = require('express');
+const router = express.Router();
+const employeeController = require('../controllers/employee_controller');
 
-	router.get('/', controller.viewAll);
-	router.get('/add', controller.viewAdd);
-	router.get('/:id', controller.viewSpecific);
-	router.get('/update/:id', controller.viewUpdate);
+	router.get('/', employeeController.viewAll);
+	router.get('/add', employeeController.viewAdd);
+	router.get('/view/:id', employeeController.viewSpecific);
+	router.get('/update/:id', employeeController.viewUpdate);
 
-	router.post('/add', controller.add);
-	router.post('/update/:id', controller.update);
-	router.post('/delete/:id', controller.delete);
+	router.post('/add', employeeController.add);
+	router.post('/update/:id', employeeController.update);
+	router.post('/delete/:id', employeeController.delete);
 
-	return router;
-}
 
-module.exports = routerBuilder;
+module.exports = router;
+
+
+
 

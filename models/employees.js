@@ -10,7 +10,8 @@ const EmployeeSchema = new Schema ({
 	password: {type: String, required: true},
 	day: {type: Number, required: true},
 	month: {type: String, required: true},
-	year: {type: Number, required: true}
+	year: {type: Number, required: true},
+	employer: [{type: Schema.Types.ObjectId, ref: 'Employer'}]
 });
 
 module.exports = mongoose.model('Employee', EmployeeSchema)

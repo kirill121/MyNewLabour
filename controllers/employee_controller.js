@@ -11,6 +11,7 @@ module.exports = {
 	},
 
 	viewAdd: function(req, res) {
+		
 		res.render('add');
 	},
 
@@ -72,4 +73,22 @@ module.exports = {
 			} else { res.redirect('/employees') }
 		})
 	}
+
+	// updateEmployee: function(req, res){
+	// 	Employees.findByIdAndUpdate(employeeId, {$push: {employers: employerId}}, {new: true}, (err) => {
+	// 		if(err){
+	// 			console.log(err)
+	// 		} else {
+	// 			Employees.find({}).populate('employer').exec( (err, updatedEmployee) => {
+	// 				if(err){
+	// 					console.log(err)
+	// 				} else {
+	// 					res.render('updatedEmployee', {updatedEmployee})
+	// 				}
+	// 			})
+	// 		}
+	// 	})
+	// }
 };
+
+

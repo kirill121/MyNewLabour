@@ -8,7 +8,8 @@
 		<li>Employer Surname: <%= employer.lastName %> </li>
 		<li>Employer Email: <%= employer.email %> </li>
 		<li>Employer Company Name: <%= employer.companyName %> </li>
-		<a href="/employers/<%= employer.id %>"><button>View Employer</button></a>   
+		<li>Employer Employments: <%= employer.employments %> </li>
+		<a href="/employers/view/<%= employer.id %>"><button>View Employer</button></a>   
 	</ul>
 <%})%>
 

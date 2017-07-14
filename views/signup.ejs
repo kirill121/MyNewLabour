@@ -1,0 +1,27 @@
+<% include partials/header %>
+
+<h1>Add An Employer</h1>
+
+<form action="/signup" method="post">
+	<div>
+		<label>First Name</label>
+		<input name="name" type="text" placeholder="Name" required>
+		
+		<label>Last Name</label>
+		<input name="surname" type="text" placeholder="Surname" required>
+		
+		<label>Email</label>
+		<input name="email" type="text" placeholder="Email" required>
+		
+		<label>Password</label>
+		<input name="password" type="password" pattern=".{5,10}" required title="password must be at least 5 - 10 characters long">
+		
+		<label>Company Name</label>
+		<input name="companyName" type="text" placeholder="Company Name" required>
+	</div>
+
+<input type="submit" name="Submit">
+
+</form>
+
+<% include partials/footer %>

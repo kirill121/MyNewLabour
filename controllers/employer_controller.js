@@ -1,14 +1,15 @@
 const Employer = require('../models/employers');
+const Employees = require('../models/employees');
 
 module.exports = {
 
 	viewAll: function(req, res){
-		Employer.find({}, (err, employers) => {
-			if(err){
-				console.log(err);
-			} else {res.render ('employers', { employers })}
-		});
-	},
+	    Employer.find({}).populate('employments').exec( (error, employers) => {
+	      if (error) {
+	      	console.log(error)
+	      } else {res.render ('employers', { employers })} 
+    	});													
+    },	
 
 	viewSpecific: function(req, res){
 		var employerId = req.params.id;
@@ -20,6 +21,7 @@ module.exports = {
 	},
 
 	viewAdd: function(req, res){
+		
 		res.render('addEmployer')
 	},
 
@@ -33,6 +35,7 @@ module.exports = {
 	},
 
 	add: function(req, res){
+
 		Employer.create({
 			firstName: req.body.name,
 			lastName: req.body.surname,
@@ -67,5 +70,40 @@ module.exports = {
 				console.log(err)
 			} else { res.redirect('/employers') }
 		})
+	},
+
+	viewEmployees: function(req, res){
+		var employerId = req.params.id;
+		Employees.find({}, (err, employees) => {
+			if(err){
+				console.log(err)
+			} else { res.render('employerViewEmployees', { employees, employerId }) }
+		})
+	},
+
+	hireEmployee: function(req, res){
+		var employeeId = req.params.employeeId;
+		var employerId = req.params.employerId;
+		Employees.findById(employeeId, (err, employee) => {
+			if(err){
+				console.log(err)
+			} else {
+				Employer.findByIdAndUpdate(employerId, {$push: {employments: employeeId}}, {new: true}, (err, updatedEmployer) => {
+			if(err) {
+				console.log(err)
+			  } else {
+			  	res.render('updatedEmployer', {updatedEmployer})
+			  }
+			})
+		}	
+	  })
 	}
 };
+
+
+
+
+
+
+
+
