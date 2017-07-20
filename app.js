@@ -1,12 +1,19 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-const routeBuilder = require('./routes/routes');
 const mongoose = require('mongoose');
 const employees = require('./routes/routes')
 const employers = require('./routes/employerRoutes')
 const authroutes = require('./routes/authroutes')
 const cookieParser = require('cookie-parser')
+const authentication = require('./controllers/authentication');
+const path = require('path');
+
+const passport = require('passport');
+const passportService = require('./services/passport');
+
+const requireAuth = passport.authenticate('jwt', { session: false });
+const requireLogin = passport.authenticate('local', { session: false });
 
 
 mongoose.connect('mongodb://localhost/employee_database', {
@@ -19,22 +26,24 @@ app.set('view cache', false);
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(cookieParser())
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', function(req, res) {
-	res.render('home');
+	user = {
+		firstName: 'Guest'
+	}
+	res.render('home', {user})
 });
-
-app.get('/employerHome', (req, res) => {
-	res.render('employerHome')
-});
-
-app.get('/employeeHome', (req, res) => {
-	res.render('employeeHome')
-});
-
-//app.use('/home', authroutes)
 
 app.use('/', authroutes);
+
+app.get('/employerHome', requireAuth, (req, res) => {
+	res.render('employerHome', {user: req.user})
+});
+
+app.get('/employeeHome', requireAuth, (req, res) => {
+	res.render('employeeHome', {user: req.user})
+});
 
 app.use('/employees', employees);
 

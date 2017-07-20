@@ -1,4 +1,5 @@
-const User = require('../models/user')
+const Employer = require('../models/employers')
+const Employee = require('../models/employees')
 const jwt = require('jwt-simple')
 const secret = require('../config/secret')
 
@@ -8,11 +9,43 @@ tokenForUser = (user) => {
 
 module.exports = {
 	
-	viewSignup: function(req, res){
-		res.render('signup');
+	signup: function(req, res){
+		var user;
+		if(req.user){
+			user = req.user
+		} else {
+			user = {
+				firstName: 'Guest'
+			}
+		}
+		res.render('whoareyou', {user});
 	},
 
-	signup: function(req, res, next) {
+	employerViewSignup: function(req, res){
+		var user;
+		if(req.user){
+			user = req.user
+		} else {
+			user = {
+				firstName: 'Guest'
+			}
+		}
+		res.render('employerSignup', {user});
+	},
+
+	employeeViewSignup: function(req, res){
+		var user;
+		if(req.user){
+			user = req.user
+		} else {
+			user = {
+				firstName: 'Guest'
+			}
+		}
+		res.render('employeeSignup', {user});
+	},
+
+	employerSignup: function(req, res, next) {
 		const firstName = req.body.name;
 		const lastName = req.body.surname;
 		const email = req.body.email;
@@ -23,7 +56,7 @@ module.exports = {
 			return res.status(422).send({error: 'Please fill out all paths'});	
 		}	
 
-		User.findOne({ email }, (error, existingUser) => {
+		Employer.findOne({ email }, (error, existingUser) => {
 			if(error){
 				return next(error)
 			}
@@ -32,7 +65,7 @@ module.exports = {
 				return res.status(422).send({ error: 'Sorry email is already in use'})
 			}
 			
-			const user = new User({
+			const employer = new Employer({
 				firstName: firstName,
 				lastName: lastName,
 				email: email,
@@ -40,28 +73,80 @@ module.exports = {
 				companyName: companyName
 			});
 
-			user.save(function(err){
+			employer.save(function(err){
 				if(err){
 					return next(err);
 				}
 				res.redirect('/')	
 			})
-		});	
-		
+		});
+	},
+
+	employeeSignup: function(req, res, next){
+		const labourType = req.body.labour;
+		const firstName = req.body.name;
+		const lastName = req.body.surname;
+		const telephoneNo = req.body.telephone;
+		const email = req.body.email;
+		const password = req.body.password;
+		const day = req.body.day;
+		const month = req.body.month;
+		const year = req.body.year;
+
+		if(!labourType || !firstName || !lastName || !email || !password || !day || !month || !year ){
+			return res.status(422).send({error: 'Please fill out all paths'});
+		}
+
+		Employee.findOne({ email }, (error, existingUser) => {
+			if(error){
+				return next(error)
+			}
+
+			if(existingUser) {
+				return res.status(422).send({ error: 'Sorry email is already in use'})
+			}
+
+			const employee = new Employee ({
+				labourType: labourType,
+				firstName: firstName,
+				lastName: lastName,
+				telephoneNo: telephoneNo,
+				email: email,
+				password: password,
+				day: day,
+				month: month,
+				year: year
+			});
+
+			employee.save(function(err){
+				if(err){
+					return next(err)
+				}
+				res.redirect('/')
+			});
+		});
 	},
 
 	viewLogin: function(req, res){
-		res.render('loginpage');
+		var user;
+		if(req.user){
+			user = req.user
+		} else {
+			user = {
+				firstName: 'Guest'
+			}
+		}
+		res.render('loginpage', {user});
 	},
 
 	login(req, res, next){
-		res.cookie('jwt', tokenForUser(req.user), {maxAge: 3600000 * 24 * 7, httpOnly: false});
-		res.redirect('/')
+		res.cookie('jwt', tokenForUser(req.user), {maxAge: 3600000 * 24 * 7, httpOnly: false});		
+		res.render('home', {user: req.user})
 	},
 
 	logout(req, res, next){
-		console.log('bing')
 		res.cookie('jwt', '', {maxAge: 3600000 * 24, httpOnly: false})
 		res.redirect('/')
 	}
+
 };

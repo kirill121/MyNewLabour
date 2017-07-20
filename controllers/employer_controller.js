@@ -7,50 +7,20 @@ module.exports = {
 	    Employer.find({}).populate('employments').exec( (error, employers) => {
 	      if (error) {
 	      	console.log(error)
-	      } else {res.render ('employers', { employers })} 
+	      } else {res.render ('employers', { employers, user: req.user })} 
     	});													
     },	
 
 	viewSpecific: function(req, res){
-		var employerId = req.params.id;
-		Employer.findById(employerId, (err, employer) => {
-			if(err){
-				console.log(err);
-			} else {res.render ('viewEmployer', { employer })}
-		});
-	},
-
-	viewAdd: function(req, res){
-		
-		res.render('addEmployer')
+		res.render ('viewEmployer', { user: req.user })
 	},
 
 	viewUpdate: function(req, res){
-		var employerId = req.params.id;
-		Employer.findById(employerId, (err, employer) => {
-			if(err){
-				console.log(err)
-			} else {res.render ('viewUpdateEmployer', { employer })}
-		});
-	},
-
-	add: function(req, res){
-
-		Employer.create({
-			firstName: req.body.name,
-			lastName: req.body.surname,
-			email: req.body.email,
-			password: req.body.password,
-			companyName: req.body.companyName
-		}, (err, add) => {
-			if(err){
-				console.log(err)
-			} else { res.redirect ('/employers') }
-		})
+		res.render('viewUpdateEmployer', { user: req.user })
 	},
 
 	update: function (req, res){
-		var employerId = req.params.id;
+		var employerId = req.user.id;
 		Employer.findByIdAndUpdate(employerId, {
 			firstName: req.body.name,
 			lastName: req.body.surname,
@@ -64,20 +34,21 @@ module.exports = {
 	},
 
 	delete: function(req, res){
-		var employerId = req.params.id;
+		var employerId = req.user.id;
 		Employer.findByIdAndRemove(employerId, (err) => {
 			if(err){
 				console.log(err)
-			} else { res.redirect('/employers') }
+			} else { res.redirect('/') }
 		})
 	},
 
 	viewEmployees: function(req, res){
-		var employerId = req.params.id;
+		var user = req.user;
+		console.log(req.user)
 		Employees.find({}, (err, employees) => {
 			if(err){
 				console.log(err)
-			} else { res.render('employerViewEmployees', { employees, employerId }) }
+			} else { res.render('employerViewEmployees', { employees, user }) }
 		})
 	},
 
@@ -89,16 +60,31 @@ module.exports = {
 				console.log(err)
 			} else {
 				Employer.findByIdAndUpdate(employerId, {$push: {employments: employeeId}}, {new: true}, (err, updatedEmployer) => {
-			if(err) {
-				console.log(err)
-			  } else {
-			  	res.render('updatedEmployer', {updatedEmployer})
-			  }
-			})
-		}	
+				if(err) {
+					console.log(err)
+				  } else {
+				  	Employer.findById(employerId, (err, employer) => {
+						if(err){
+							console.log(err)
+						} else {
+							Employees.findByIdAndUpdate(employeeId, {$push: {employer: employer.companyName}}, {new: true}, (err, updatedEmployee) => {
+								if(err){
+									console.log(err)
+								} else {
+									res.redirect('/employers')
+								}
+							})
+						}
+					})
+				  }
+				})
+			}	
 	  })
 	}
 };
+
+
+
 
 
 

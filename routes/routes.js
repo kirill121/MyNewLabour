@@ -2,14 +2,19 @@ const express = require('express');
 const router = express.Router();
 const employeeController = require('../controllers/employee_controller');
 
-	router.get('/', employeeController.viewAll);
-	router.get('/add', employeeController.viewAdd);
-	router.get('/view/:id', employeeController.viewSpecific);
-	router.get('/update/:id', employeeController.viewUpdate);
+const passport = require('passport');
+const passportService = require('../services/employeePassport');
 
-	router.post('/add', employeeController.add);
-	router.post('/update/:id', employeeController.update);
-	router.post('/delete/:id', employeeController.delete);
+const requireAuth = passport.authenticate('jwt', { session: false });
+const requireLogin = passport.authenticate('local', { session: false });
+	
+
+router.get('/', employeeController.viewAll);
+router.get('/view/:id', employeeController.viewSpecific);
+router.get('/update/:id', employeeController.viewUpdate);
+
+router.post('/update/:id', employeeController.update);
+router.post('/delete/:id', employeeController.delete);
 
 
 module.exports = router;
