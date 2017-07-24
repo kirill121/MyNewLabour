@@ -1,8 +1,0 @@
-when click on employer homepage - loads employee database - organised
-with a button <hire> next to each employee
-hire button pushes employee object into employer object array
-
-hire an employee from employer profile page ---> update employee and push employer object id into array -----> update employer push employee object id into array
-
-database?
-collections?
