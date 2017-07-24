@@ -8,6 +8,8 @@
 		<li>Employer Surname: <%= user.lastName %></li>
 		<li>Employer Email: <%= user.email %></li>
 		<li>Employer Company: <%= user.companyName %></li>
+		<li>Employer Employements: <%= user.employments %>
+		<br>
 		<a href='/employers/update/<%= user.id %>'><button>Update Employer</button></a>
 		<form method='post' action='/employers/delete/<%= user.id %>'>
         <a href="/employers/delete/<%= user.id %>"><button>Delete Employer</button></a>

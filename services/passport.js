@@ -1,5 +1,6 @@
 const passport = require('passport');
 const Employer = require('../models/employers');
+const Employee = require('../models/employees');
 const JwtStrategy = require('passport-jwt').Strategy
 const ExtractJwt = require('passport-jwt').ExtractJwt
 const secret = require('../config/secret');
@@ -12,18 +13,31 @@ const localLogin = new LocalStrategy(localOptions, function(email, password, don
 			return done(err);
 		}
 		if(!employer){
-			return done(null, false);
+				Employee.findOne({ email: email }, (err, employee) => {
+					if(err){
+						return done(err);
+					}
+					employee.comparePassword(password, function(err, isMatch) {
+						if(err){
+							return done(err);
+						}
+						if(!isMatch){
+							return done(null, false);
+						}
+						return done(null, employee);
+					});
+				});
+		} else {
+			employer.comparePassword(password, function(err, isMatch) {
+				if(err){
+					return done(err);
+				}
+				if(!isMatch){
+					return done(null, false);
+				}
+				return done(null, employer);
+			});
 		}
-
-		employer.comparePassword(password, function(err, isMatch) {
-			if(err){
-				return done(err);
-			}
-			if(!isMatch){
-				return done(null, false);
-			}
-			return done(null, employer);
-		});
 	});
 });
 
@@ -50,7 +64,16 @@ const jwtLogin = new JwtStrategy(jwtOptions, (payload, done) => {
 		if(employer){
 			done(null, employer)
 		} else {
-			done(null, false)
+			Employee.findById(payload.sub, (error, employee) => {
+				if(error){
+					return done(error, false)
+				}
+				if(employee){
+					done(null, employee)
+				} else {
+					done(null, false)
+				}
+			});
 		}
 	});
 });

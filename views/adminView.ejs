@@ -1,0 +1,89 @@
+<% include partials/header %>
+
+<!-- <h1>ADMIN VIEW<h1> -->
+<div class='container'>
+<div class="modal-body row">
+  <div class="col-md-6">
+  <h1>EMPLOYEES IN DATABASE</h1>
+  	<div>
+	<span><h1>Manual Labour</h1></span>
+	  <ul> 
+	  <% employees.forEach( employee => { %>
+	    <% if(employee.labourType == "Manual Labour")  { %>
+
+	        <li>Employee Profession: <%= employee.labourType %> </li>
+	        <li>Employee Name: <%= employee.firstName %> </li>
+	        <li>Employee Surname: <%= employee.lastName %> </li>
+	        <li>Employee Email: <%= employee.email %> </li>
+	        <li>Date Of Birth: <%= employee.day %> <%= employee.month %> <%= employee.year %> </li>
+	        <li>Employer: <%= employee.employer %> </li>
+	        <a href="/employees/view/<%= employee.id %>"><button>View Employee</button></a>          
+	        <br>
+	        <hr>
+
+	    <% } %>
+	  <%})%>
+	  </ul>
+	</div>
+	<div>
+	  <span><h1>Painter</h1></span>
+	  <ul> 
+	  <% employees.forEach( employee => { %>
+	    <% if(employee.labourType == "Painter")  { %>
+
+	        <li>Employee Profession: <%= employee.labourType %> </li>
+	        <li>Employee Name: <%= employee.firstName %> </li>
+	        <li>Employee Surname: <%= employee.lastName %> </li>
+	        <li>Employee Email: <%= employee.email %> </li>
+	        <li>Date Of Birth: <%= employee.day %> <%= employee.month %> <%= employee.year %> </li>
+	        <li>Employer: <%= employee.employer %> </li>
+	        <a href="/employees/view/<%= employee.id %>"><button>View Employee</button></a>          
+	        <br>
+	        <hr>
+
+	    <% } %>
+	  <%})%>
+	  </ul>
+	</div>
+	<div>
+	  <span><h1>Bricklayer</h1></span>
+	  <ul> 
+	  <% employees.forEach( employee => { %>
+	    <% if(employee.labourType == "Bricklayer")  { %>
+
+	        <li>Employee Profession: <%= employee.labourType %> </li>
+	        <li>Employee Name: <%= employee.firstName %> </li>
+	        <li>Employee Surname: <%= employee.lastName %> </li>
+	        <li>Employee Email: <%= employee.email %> </li>
+	        <li>Date Of Birth: <%= employee.day %> <%= employee.month %> <%= employee.year %> </li>
+	        <li>Employer: <%= employee.employer %> </li>
+	        <a href="/employees/view/<%= employee.id %>"><button>View Employee</button></a>          
+	        <br>
+	        <hr>
+
+	    <% } %>
+	  <%})%>
+	  </ul>
+	</div>
+</div>
+
+<h1>EMPLOYERS IN DATABASE</h1>	
+	<div class="col-md-6">
+		<div>
+		<span>Employers</span>
+		<% employers.forEach( employer => { %>
+			<ul>
+				<li>Employer Name: <%= employer.firstName %> </li>
+				<li>Employer Surname: <%= employer.lastName %> </li>
+				<li>Employer Email: <%= employer.email %> </li>
+				<li>Employer Company Name: <%= employer.companyName %> </li>
+				<li>Employer Employments: <%= employer.employments %> </li>
+				<a href="/employers/view/<%= employer.id %>"><button>View Employer</button></a>   
+			</ul>
+		<%})%>
+		</div>
+	</div>
+</div>	
+</div>
+
+<% include partials/footer %>

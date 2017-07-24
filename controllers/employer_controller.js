@@ -59,7 +59,7 @@ module.exports = {
 			if(err){
 				console.log(err)
 			} else {
-				Employer.findByIdAndUpdate(employerId, {$push: {employments: employeeId}}, {new: true}, (err, updatedEmployer) => {
+				Employer.findByIdAndUpdate(employerId, {$push: {employments: employee.firstName}}, {new: true}, (err, updatedEmployer) => {
 				if(err) {
 					console.log(err)
 				  } else {
@@ -82,6 +82,7 @@ module.exports = {
 	  })
 	}
 };
+
 
 
 

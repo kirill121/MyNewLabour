@@ -8,6 +8,7 @@ const authroutes = require('./routes/authroutes')
 const cookieParser = require('cookie-parser')
 const authentication = require('./controllers/authentication');
 const path = require('path');
+const Employer = require('./models/employers')
 
 const passport = require('passport');
 const passportService = require('./services/passport');
@@ -16,7 +17,7 @@ const requireAuth = passport.authenticate('jwt', { session: false });
 const requireLogin = passport.authenticate('local', { session: false });
 
 
-mongoose.connect('mongodb://localhost/employee_database', {
+mongoose.connect('mongodb://kirill:password@ds119533.mlab.com:19533/labourfi', {
 	useMongoClient: true
 })
 
@@ -28,12 +29,15 @@ app.use(bodyParser.json());
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/', function(req, res) {
-	user = {
-		firstName: 'Guest'
-	}
-	res.render('home', {user})
+app.get('/', function(req, res) {	
+		user = { firstName: 'Guest' }
+  	res.render('home', {user})
 });
+
+app.get('/home', requireAuth, function(req, res){
+	var user = req.user
+	res.render('home', {user})
+})
 
 app.use('/', authroutes);
 
@@ -53,6 +57,7 @@ app.use((error, req, res, next) => {
 	res.status(422).send('Hey theres been an error ' + error)
 })
 
-app.listen(3000, function(){
+var port = process.env.PORT || 3000
+app.listen(port, function(){
 	console.log('server is up and running!');
 });

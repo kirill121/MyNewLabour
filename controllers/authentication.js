@@ -8,6 +8,26 @@ tokenForUser = (user) => {
 }
 
 module.exports = {
+
+	adminView: function(req, res){
+		var user;
+		user = req.user;
+		if(req.user.email == 'kirill121@yahoo.com'){
+			Employer.find({}, (err, employers) => {
+				if(err){
+					console.log(err)
+				} else{
+					Employee.find({}, (err, employees) => {
+						if(err){
+							console.log(err)
+						} else {
+							res.render('adminView', {user, employers, employees}, function(err){return alert('nanan')})
+						}
+					})
+				}
+			})
+		}	
+	},
 	
 	signup: function(req, res){
 		var user;
@@ -77,7 +97,7 @@ module.exports = {
 				if(err){
 					return next(err);
 				}
-				res.redirect('/')	
+				res.redirect('/login')	
 			})
 		});
 	},
@@ -122,7 +142,7 @@ module.exports = {
 				if(err){
 					return next(err)
 				}
-				res.redirect('/')
+				res.redirect('/login')
 			});
 		});
 	},
@@ -141,7 +161,7 @@ module.exports = {
 
 	login(req, res, next){
 		res.cookie('jwt', tokenForUser(req.user), {maxAge: 3600000 * 24 * 7, httpOnly: false});		
-		res.render('home', {user: req.user})
+		res.redirect('/home')
 	},
 
 	logout(req, res, next){
