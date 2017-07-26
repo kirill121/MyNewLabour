@@ -1,22 +1,40 @@
 <% include partials/header %>
+<div class='container'>	
+	<div class='row'>
+		<div class="col-md-6">
+			<h1>Welcome: <%= user.firstName %></h1>
+				<ul>
 
-<h1>Welcome: <%= user.firstName %></h1>
+					<li>Employer Name: <%= user.firstName %></li>
+					<li>Employer Surname: <%= user.lastName %></li>
+					<li>Employer Email: <%= user.email %></li>
+					<li>Employer Company: <%= user.companyName %></li>		
+					<br>
+					<a href='/employers/update/<%= user.id %>'><button>Update Employer</button></a>
+					<form method='post' action='/employers/delete/<%= user.id %>'>
+			        <a><button>Delete Employer</button></a>
+			        </form>
+			        <a href="/employers/<%= user.id %>/employeeView"><button>Click to hire employees</button></a>
+				</ul>
+			</div>	
 
-	<ul>
-
-		<li>Employer Name: <%= user.firstName %></li>
-		<li>Employer Surname: <%= user.lastName %></li>
-		<li>Employer Email: <%= user.email %></li>
-		<li>Employer Company: <%= user.companyName %></li>
-		<li>Employer Employements: <%= user.employments %>
-		<br>
-		<a href='/employers/update/<%= user.id %>'><button>Update Employer</button></a>
-		<form method='post' action='/employers/delete/<%= user.id %>'>
-        <a href="/employers/delete/<%= user.id %>"><button>Delete Employer</button></a>
-        </form>
-        <a href="/employers/<%= user.id %>/employeeView"><button>Click to hire employees</button></a>
-
-	</ul>	
+		<div class='col-md-6'>
+		<h4>PAST/CURRENT EMPLOYMENTS</h4>		
+			<div class="divvy">
+				<ul>
+				 <% employees.forEach( employee => { %>
+					<li>Employee Name: <%= employee.firstName %></li>
+					<li>Employee Surname: <%= employee.lastName %></li>
+					<li>Employee Telephone Number: <%= employee.telephoneNo %></li>
+					<form method='post' action='/employers/<%= employee.id %>/employeeDelete'>
+						<input type="submit" value="Delete employee">
+					</form>
+			 	 <%	 }) %>
+				</ul>	 
+			</div>
+		</div>
+	</div>		
+</div>		
 
 
 <% include partials/footer %>

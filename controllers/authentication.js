@@ -21,7 +21,7 @@ module.exports = {
 						if(err){
 							console.log(err)
 						} else {
-							res.render('adminView', {user, employers, employees}, function(err){return alert('nanan')})
+							res.render('adminView', {user, employers, employees})
 						}
 					})
 				}
@@ -160,6 +160,7 @@ module.exports = {
 	},
 
 	login(req, res, next){
+		console.log(req.user)
 		res.cookie('jwt', tokenForUser(req.user), {maxAge: 3600000 * 24 * 7, httpOnly: false});		
 		res.redirect('/home')
 	},

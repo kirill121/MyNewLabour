@@ -12,7 +12,7 @@ const EmployeeSchema = new Schema ({
 	day: {type: Number, required: true},
 	month: {type: String, required: true},
 	year: {type: Number, required: true},
-	employer: [{type: Schema.Types.Mixed, ref: 'Employer'}]
+	employer: [{type: Schema.Types.ObjectId, ref: 'Employer'}]
 });
 
 EmployeeSchema.pre('save', function(next){

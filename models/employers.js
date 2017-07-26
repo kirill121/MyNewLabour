@@ -8,7 +8,7 @@ const EmployerSchema = new Schema ({
 	email: {type: String, unique: true, lowercase: true, required: true},
 	password: {type: String, required: true},
 	companyName: {type: String, required: true},
-	employments: [{type: Schema.Types.Mixed, ref: 'Employee' }]
+	employments: [{type: Schema.Types.ObjectId, ref: 'Employee' }]
 });
 
 EmployerSchema.pre('save', function(next){

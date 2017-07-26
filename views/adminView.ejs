@@ -16,7 +16,7 @@
 	        <li>Employee Surname: <%= employee.lastName %> </li>
 	        <li>Employee Email: <%= employee.email %> </li>
 	        <li>Date Of Birth: <%= employee.day %> <%= employee.month %> <%= employee.year %> </li>
-	        <li>Employer: <%= employee.employer %> </li>
+	        <li>Employer: <%= employee.employer.firstName %> </li>
 	        <a href="/employees/view/<%= employee.id %>"><button>View Employee</button></a>          
 	        <br>
 	        <hr>
@@ -36,7 +36,7 @@
 	        <li>Employee Surname: <%= employee.lastName %> </li>
 	        <li>Employee Email: <%= employee.email %> </li>
 	        <li>Date Of Birth: <%= employee.day %> <%= employee.month %> <%= employee.year %> </li>
-	        <li>Employer: <%= employee.employer %> </li>
+	        <li>Employer: <%= employee.employer.firstName %> </li>
 	        <a href="/employees/view/<%= employee.id %>"><button>View Employee</button></a>          
 	        <br>
 	        <hr>
@@ -56,7 +56,7 @@
 	        <li>Employee Surname: <%= employee.lastName %> </li>
 	        <li>Employee Email: <%= employee.email %> </li>
 	        <li>Date Of Birth: <%= employee.day %> <%= employee.month %> <%= employee.year %> </li>
-	        <li>Employer: <%= employee.employer %> </li>
+	        <li>Employer: <%= employee.employer.firstName %> </li>
 	        <a href="/employees/view/<%= employee.id %>"><button>View Employee</button></a>          
 	        <br>
 	        <hr>
@@ -70,14 +70,14 @@
 <h1>EMPLOYERS IN DATABASE</h1>	
 	<div class="col-md-6">
 		<div>
-		<span>Employers</span>
+		<h1><span>Employers</span></h1>
 		<% employers.forEach( employer => { %>
 			<ul>
 				<li>Employer Name: <%= employer.firstName %> </li>
 				<li>Employer Surname: <%= employer.lastName %> </li>
 				<li>Employer Email: <%= employer.email %> </li>
 				<li>Employer Company Name: <%= employer.companyName %> </li>
-				<li>Employer Employments: <%= employer.employments %> </li>
+				<li>Employer Employments: <%= employer.employments.firstName %> </li>
 				<a href="/employers/view/<%= employer.id %>"><button>View Employer</button></a>   
 			</ul>
 		<%})%>

@@ -5,6 +5,13 @@ form .reg {
     font-size: 0.9em;
 }
 
+.divvy {
+    width: 600px;
+    border: 10px solid green;
+    padding: 10px;
+    word-wrap: break-word;
+}
+
 /* enable absolute positioning */
 .inner-addon {
     position: relative; 
@@ -24,3 +31,5 @@ form .reg {
 /* add padding  */
 .left-addon input  { padding-left:  30px; }
 .right-addon input { padding-right: 30px; }
+
+

@@ -14,7 +14,7 @@
         <li>Employee Surname: <%= employee.lastName %> </li>
         <li>Employee Email: <%= employee.email %> </li>
         <li>Date Of Birth: <%= employee.day %> <%= employee.month %> <%= employee.year %> </li>
-        <a href="/employers/<%= user.id %>/hireEmployee/<%= employee.id %>"><button>Hire Person</button></a>          
+        <a href="/employers/hire/<%= employee.id %>"><button>Hire Person</button></a>          
         <br>
         <hr>
 
@@ -33,7 +33,7 @@
         <li>Employee Surname: <%= employee.lastName %> </li>
         <li>Employee Email: <%= employee.email %> </li>
         <li>Date Of Birth: <%= employee.day %> <%= employee.month %> <%= employee.year %> </li>
-        <a href="/employers/<%= user.id %>/hireEmployee/<%= employee.id %>"><button>Hire person</button></a>          
+        <a href="/employers/hire/<%= employee.id %>"><button>Hire person</button></a>          
         <br>
         <hr>
 
@@ -52,7 +52,7 @@
         <li>Employee Surname: <%= employee.lastName %> </li>
         <li>Employee Email: <%= employee.email %> </li>
         <li>Date Of Birth: <%= employee.day %> <%= employee.month %> <%= employee.year %> </li>
-        <a href="/employers/<%= user.id %>/hireEmployee/<%= employee.id %>"><button>Hire Person</button></a>          
+        <a href="/employers/hire/<%= employee.id %>"><button>Hire Person</button></a>          
         <br>
         <hr>
 
@@ -61,6 +61,6 @@
   </ul>
 </div>
 
-<a href='/employerHome'><button>Back To Home</button></a>
+<a href='/home'><button>Back To Home</button></a>
 
 <% include partials/footer %>

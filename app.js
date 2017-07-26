@@ -17,7 +17,11 @@ const requireAuth = passport.authenticate('jwt', { session: false });
 const requireLogin = passport.authenticate('local', { session: false });
 
 
-mongoose.connect('mongodb://kirill:password@ds119533.mlab.com:19533/labourfi', {
+// mongoose.connect('mongodb://kirill:password@ds119533.mlab.com:19533/labourfi', {
+// 	useMongoClient: true
+// })
+
+mongoose.connect('mongodb://localhost/employee_database', {
 	useMongoClient: true
 })
 
@@ -30,7 +34,8 @@ app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', function(req, res) {	
-		user = { firstName: 'Guest' }
+	var user;
+	user = { firstName: 'Guest' }
   	res.render('home', {user})
 });
 
