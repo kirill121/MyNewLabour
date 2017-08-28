@@ -21,7 +21,7 @@ const requireLogin = passport.authenticate('local', { session: false });
 // 	useMongoClient: true
 // })
 
-mongoose.connect('mongodb://localhost/employee_database', {
+mongoose.connect('mongodb://localhost/employer_database', {
 	useMongoClient: true
 })
 

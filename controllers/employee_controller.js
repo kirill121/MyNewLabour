@@ -11,20 +11,32 @@ module.exports = {
 	},
 
 	viewSpecific: function(req, res) {
-		var employeeid = req.params.id;
+		var user;
+		var employeeid = req.user.id;
+		user = req.user;
 		Employee.findById(employeeid, (err, employee) => {
 			if(err){
 				console.log(err);
-			} else { res.render('view', { employee }) }
-		})
+			} else { 
+				Employee.findById(employeeid).populate('employer').exec( (error, employeeToPopulate) => {
+					if(error){
+						console.log(error)
+					} else {	
+						res.render('view', { employee, user, employers: employeeToPopulate.employer })	
+					}
+				})
+			  }
+		})			
 	},
 
 	viewUpdate: function(req, res) {
+		var user;
 		var employeeid = req.params.id;
+		user = req.user;
 		Employee.findById(employeeid, (err, employee) => {
 			if(err){
 				console.log(err)
-			} else { res.render('update', { employee }); }
+			} else { res.render('update', { employee, user }); }
 		})
 	},
 
@@ -48,7 +60,7 @@ module.exports = {
 		Employee.findByIdAndRemove(employeeid, (err) => {
 			if(err){
 				console.log(err)
-			} else { res.redirect('/employees') }
+			} else { res.redirect('/') }
 		})
 	}
 };

@@ -22,11 +22,11 @@
   <label for="email">Email</label>
   <input name="email" type="email" placeholder="your email" required value="<%= employee.email %>">
   <label for="password">Password</label>
-  <input name="password" type="password" pattern=".{5,10}" required title="password must be at least 5 - 10 characters long" value="<%= employee.password %>">
+  <input name="password" type="password" pattern=".{5,10}" required title="password must be at least 5 - 10 characters long">
 </div>
 
 
 <input type="submit" name="Submit Update">
 </form>
 
-<% include partials/header %>
+<% include partials/footer %>

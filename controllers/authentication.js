@@ -26,7 +26,7 @@ module.exports = {
 					})
 				}
 			})
-		}	
+		} else {res.redirect('/home')}	
 	},
 	
 	signup: function(req, res){
@@ -64,7 +64,7 @@ module.exports = {
 		}
 		res.render('employeeSignup', {user});
 	},
-
+	
 	employerSignup: function(req, res, next) {
 		const firstName = req.body.name;
 		const lastName = req.body.surname;

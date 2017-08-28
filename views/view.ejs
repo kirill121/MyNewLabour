@@ -1,6 +1,6 @@
 <% include partials/header %>
 
-<h1>Welcome: <%= employee.id %></h1>
+<h1>Welcome: <%= employee.firstName %></h1>
     
     <ul>
           
@@ -8,14 +8,14 @@
           <li>Employee Name: <%= employee.firstName %> </li>
           <li>Employee Surname: <%= employee.lastName %> </li>
           <li>Employee Email: <%= employee.email %> </li>
-          <li>Employee Password: <%= employee.password %> </li>
           <li>Date Of Birth: <%= employee.day %> <%= employee.month %> <%= employee.year %> </li>
+        <% employers.forEach( (employer) => { %>
+          <li>Employee Past/Current Employers: <%= employer.companyName %></li>
+        <% }) %>  
           <a href="/employees/update/<%= employee.id %>"><button>Update Employee</button></a>
           <form method='post' action='/employees/delete/<%= employee.id %>'>
           <a href="/employees/delete/<%= employee.id %>"><button>Delete this Employee</button></a>
           </form>
     </ul>
-
-
 
 <% include partials/footer %>

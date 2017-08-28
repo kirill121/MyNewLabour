@@ -110,28 +110,27 @@ module.exports = {
 	deleteEmployee: function(req, res){
 		var employeeId = req.params.id
 		var employerId = req.user.id;
-
-
-
 		Employer.findById(employerId, function(err, employer){
-
-
-			var newEmploymentsArray = employer.employments.filter( employee => {
+			if(err){
+				console.log(err)
+			} else {
+				var newEmploymentsArray = employer.employments.filter( employee => {
 				return employee != employeeId
-			})
+				})
 
-			employer.employments = newEmploymentsArray
+				employer.employments = newEmploymentsArray
 
-			employer.save(function(err){
-				if(err){
-					console.log(err)
-				} else {
-					res.redirect('/employers/' + req.user.id)
-				}
-			})
+				employer.save(function(err){
+					if(err){
+						console.log(err)
+					} else {
+						res.redirect('/employers/' + req.user.id)
+					}
+				})
+			}
 		})
-	}	
-};
+	}			
+};	
 
 
 
