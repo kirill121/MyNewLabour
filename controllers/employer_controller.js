@@ -12,7 +12,7 @@ module.exports = {
     },	
 
 	viewSpecific: function(req, res){
-		employerId = req.user.id
+		var employerId = req.user.id
 		Employer.findById(employerId).populate('employments').exec( (err, employer) => {
 			if(err){
 				console.log(err)
