@@ -161,8 +161,9 @@ module.exports = {
 
 	login(req, res, next){
 		console.log(req.user)
-		res.cookie('jwt', tokenForUser(req.user), {maxAge: 3600000 * 24 * 7, httpOnly: false});		
-		res.redirect('/home')
+		res.cookie('jwt', tokenForUser(req.user), {maxAge: 3600000 * 24 * 7, httpOnly: false});
+		var employerId = req.user.id		
+		res.redirect('/employers/view/employerId')
 	},
 
 	logout(req, res, next){

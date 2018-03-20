@@ -23,8 +23,8 @@ router.get('/:id', employerController.viewSpecific)
 router.get('/view/:id', employerController.viewSpecific);
 router.get('/update/:id', employerController.viewUpdate);
 router.get('/:id/employeeView', employerController.viewEmployees);
-router.get('/hire/:employeeId', employerController.hireEmployee)
 
+router.post('/hire/:employeeId', employerController.hireEmployee)
 router.post('/:id/employeeDelete', employerController.deleteEmployee);
 router.post('/update/:id', employerController.update);
 router.post('/delete/:id', employerController.delete);

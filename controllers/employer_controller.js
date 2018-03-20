@@ -94,7 +94,7 @@ module.exports = {
 											// 	});
 											// 	return arr;
 											// })
-											res.render('viewEmployer', {employees: employerToPopulate.employments, user: req.user})
+											res.redirect('/employers/view/employerId')
 								       } 
 							    	});
 								}
@@ -124,7 +124,7 @@ module.exports = {
 					if(err){
 						console.log(err)
 					} else {
-						res.redirect('/employers/' + req.user.id)
+						res.redirect('/employers/view/' + req.user.id)
 					}
 				})
 			}

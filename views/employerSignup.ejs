@@ -1,44 +1,33 @@
 <%- include partials/header %>
 
-<h1>Register As An Employer:</h1>
-
-<div class='row'>
+<div class="container" id='ESU'>
+    <h1 id='writing'>Register As An Employer:</h1>
     <div class="col-lg-3"></div>
     <div class="col-lg-6">
-        <form action='/employerSignup' method='post' id='reg'>
-        <div class='form-group'>
-            <div class='inner-addon left-addon'>
-                <i class='glyphicon glyphicon-envelope'></i>
+        <form action='/employerSignup' method='post' id='reg' class="form-horizontal">
+            <div class='input-group form-group'>
+                <span class="input-group-addon"><i class='glyphicon glyphicon-envelope'></i></span>
                 <input type='text' class='form-control' name='email' placeholder='Email'>
-            </div>
-        </div>
-        <div class='form-group'>
-            <div class='inner-addon left-addon'>
-            	<i class='glyphicon glyphicon-wrench'></i>
+            </div>  
+            <div class='input-group form-group'>
+            	<span class="input-group-addon"><i class='glyphicon glyphicon-wrench'></i></span>
                 <input class='form-control' name='password' type='password' placeholder='Password' pattern=".{5,10}" required title="password must be at least 5 - 10 characters long">
             </div>
-        </div>
-        <div class='form-group'>
-            <div class='inner-addon left-addon'>
-            	<i class='glyphicon glyphicon-user'></i>
+            <div class='input-group form-group'>
+            	<span class="input-group-addon"><i class='glyphicon glyphicon-user'></i></span>
                 <input type='text' class='form-control' name='name' placeholder='First Name'>
             </div>
-        </div>
-        <div class='form-group'>
-            <div class='inner-addon left-addon'>
-                <i class='glyphicon glyphicon-user'></i>
+            <div class='input-group form-group'>
+                <span class="input-group-addon"><i class='glyphicon glyphicon-user'></i></span>
                 <input type='text' class='form-control' name='surname' placeholder='Last Name'>
             </div>
-        </div>
-        <div class='form-group'>
-            <div class='inner-addon left-addon'>
-            	<i class='glyphicon glyphicon-briefcase'></i>
+            <div class='input-group form-group'>
+            	<span class="input-group-addon"><i class='glyphicon glyphicon-briefcase'></i></span>
                 <input  type='text' class='form-control' name='companyName' placeholder='Company Name'>
             </div>        
-        </div>
-            <button type='submit' class='btn btn-primary btn-block'>Sign Up</button>
+            <button type='submit' class='btn btn-primary btn-block form'>Sign Up</button>
         </form>
-    </div>
+    </div>    
     <div class="col-lg-3"></div>
 </div>
 

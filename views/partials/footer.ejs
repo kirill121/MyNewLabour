@@ -7,6 +7,15 @@
                 x.className = "topnav";
             }
         }
+        document.getElementsByTagName("BODY")[0].onresize = function() {funky()};
+        var form = document.querySelector('.col-lg-6');
+        function funky(){
+		  if (window.innerWidth <= 1200) {
+		  	form.classList.add("input-group");
+		  }
+		  else {form.classList.remove("input-group");
+			}
+		};
     </script>
     </body>
 </html>  

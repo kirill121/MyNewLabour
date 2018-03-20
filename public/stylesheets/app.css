@@ -28,11 +28,17 @@ form .reg {
     font-size: 0.9em;
 }
 
-.divvy {
+#divvy {
+    position: relative;
     width: 600px;
+    height: 300px;
     border: 10px solid green;
     padding: 10px;
     word-wrap: break-word;
+}
+
+#bla {
+  overflow: scroll;
 }
 
 /* enable absolute positioning */
@@ -67,7 +73,7 @@ section {
   min-height: 10vh;
 }
 
-.btn {
+.SUB {
   text-transform: uppercase;
   font-weight: bold;
   color: #F7FE27;
@@ -77,7 +83,8 @@ section {
   padding: 0px;
 }
 
-.btn:hover {
+.SUB:hover {
+  text-decoration: none;
   transition: all 0.35s ease-in-out;
   transform: scale(1.5);
   color: #F7FE27;
@@ -168,11 +175,14 @@ section {
 @media screen and (max-width: 900px) {
   section {
     transform: translate(-50%, -50%);  
-    margin-left: 210px;
-    margin-top: 300px;
+    margin-left: 200px;
+    margin-top: 200px;
     text-align: left;
   }
-    .btn:hover {
+  section a.SUB {
+    font-size: 70px;
+  }
+  section a.SUB:hover {
     transition: all 0.35s ease-in-out;
     transform: scale(1.2);
     color: #F7FE27;
@@ -207,7 +217,7 @@ div.employmentbuttons {
 div a.buttons {
   font-family: 'Gloria Hallelujah', sans-serif;
   text-decoration: none;
-  font-size: 30px;
+  font-size: 35px;
   color: #F7FE27;
 }
 
@@ -231,4 +241,78 @@ div #button2:hover {
   transition: all 0.35s ease-in-out;
   transform: scale(1.5);
   color: #F7FE27;
+}
+
+@media screen and (max-width: 800px) {
+/*   {
+    transform: translate(-50%, -50%);  
+    margin-left: 210px;
+    margin-top: 300px;
+    text-align: left;
+  }*/
+   div a.buttons {
+    transition: all 0.35s ease-in-out;
+    transform: scale(1.2);
+    color: #F7FE27;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .question {
+    margin-left: 110px;
+    color: #F7FE27;
+    font-size: 40px;
+  }
+  .pic {
+    position: static;
+    margin-top: 0px;
+    margin-left: 0px;
+    height: 400px;
+    width: 400px;
+  }
+    div.employmentbuttons {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    align-items: flex-start
+
+  }
+  div #button1 {
+    margin-left: 55px;
+    transition: transform 500ms 100ms;
+    font-size: 20px;
+  }
+
+  div #button2 {
+    margin-left: 65px;
+    transition: transform 500ms 100ms;
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  #writing {
+    position: absolute;
+    text-align: left;
+  }
+  .col-lg-6 {
+    margin-top: 80px;
+    margin-left: 120px;
+  }
+}
+
+#writing {
+  text-align: center;
+  font-family: 'Libre Baskerville', sans-serif;
+  color: #F7FE27;
+}
+
+#welcomeBox {
+  margin-left: 800px;
+}
+
+#employmentsBox {
+  position: relative;
+  margin-top: 250px;
+  margin-left: 600px;
 }

@@ -1,7 +1,7 @@
 <% include partials/header %>
 <div class='container'>	
 	<div class='row'>
-		<div class="col-md-6">
+		<div class="col-md-12" id='welcomeBox'>
 			<h1>Welcome: <%= user.firstName %></h1>
 				<ul>
 
@@ -16,11 +16,14 @@
 			        </form>
 			        <a href="/employers/<%= user.id %>/employeeView"><button>Click to hire employees</button></a>
 				</ul>
-			</div>	
+			</div>
+		</div>	
+</div>				
 
-		<div class='col-md-6'>
-		<h4>PAST/CURRENT EMPLOYMENTS</h4>		
-			<div class="divvy">
+<div class='container' id='employmentsBox'>
+	<div class='row' id='bla'>		
+		<div class='col-md-3' id="divvy">
+			<h4>CURRENT EMPLOYMENTS</h4>
 				<ul>
 				 <% employees.forEach( employee => { %>
 					<li>Employee Name: <%= employee.firstName %></li>
@@ -31,10 +34,15 @@
 					</form>
 			 	 <%	 }) %>
 				</ul>	 
-			</div>
 		</div>
-	</div>		
-</div>		
+		<div class='col-md-3'>
+				<div id='divvy'>
+					<h4>Past Employments</h4>
+					<p>bla bla bladi bla</p>
+				</div>
+		</div>
+	</div>
+</div>					
 
 
 <% include partials/footer %>
