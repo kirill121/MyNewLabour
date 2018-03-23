@@ -4,9 +4,6 @@
 		<div class="col-md-12" id='welcomeBox'>
 			<h1>Welcome: <%= user.firstName %></h1>
 				<ul>
-
-					<li>Employer Name: <%= user.firstName %></li>
-					<li>Employer Surname: <%= user.lastName %></li>
 					<li>Employer Email: <%= user.email %></li>
 					<li>Employer Company: <%= user.companyName %></li>		
 					<br>
@@ -21,7 +18,7 @@
 </div>				
 
 <div class='container' id='employmentsBox'>
-	<div class='row' id='bla'>		
+	<div class='row'>		
 		<div class='col-md-3' id="divvy">
 			<h4>CURRENT EMPLOYMENTS</h4>
 				<ul>
@@ -29,9 +26,12 @@
 					<li>Employee Name: <%= employee.firstName %></li>
 					<li>Employee Surname: <%= employee.lastName %></li>
 					<li>Employee Telephone Number: <%= employee.telephoneNo %></li>
-					<form method='post' action='/employers/<%= employee.id %>/employeeDelete'>
-						<input type="submit" value="Delete employee">
-					</form>
+					<div class='popup' onclick='popsup()'><button>Delete</button>
+						<button class="popuptext" id="myPopup">Rate the Employee</button>
+<!-- 						<form method='post' action='/employers/<%= employee.id %>/employeeDelete'>
+							<input type="submit" value="Delete employee">
+						</form> -->
+					</div>
 			 	 <%	 }) %>
 				</ul>	 
 		</div>
@@ -44,5 +44,11 @@
 	</div>
 </div>					
 
+<script>
+function popsup() {
+    var popup = document.getElementById("myPopup");
+    popup.classList.toggle("show");
+}
+</script>
 
 <% include partials/footer %>

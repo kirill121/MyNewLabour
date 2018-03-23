@@ -35,7 +35,9 @@ form .reg {
     border: 10px solid green;
     padding: 10px;
     word-wrap: break-word;
+    overflow-y: scroll;
 }
+
 
 #bla {
   overflow: scroll;
@@ -309,10 +311,60 @@ div #button2:hover {
 
 #welcomeBox {
   margin-left: 800px;
+  font-family: 'Libre Baskerville', sans-serif;
+  color: #F7FE27;
 }
 
 #employmentsBox {
   position: relative;
   margin-top: 250px;
   margin-left: 600px;
+}
+
+@media screen and (max-width: 900px) {
+  body {
+    background: url(labourfibackgroundEdited.jpg);
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100%;
+    background-size: cover;
+    z-index: -1;
+    min-width: 1024px;
+    height: auto;
+    position: fixed;
+  }
+}
+
+.popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    user-select: none;
+    margin-left: 100px;
+}
+
+.popup .popuptext {
+    visibility: hidden;
+    width: 160px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -80px;
+}
+
+.popup .show {
+    visibility: visible;
+    animation: fadeIn 1s;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 1;}
 }
