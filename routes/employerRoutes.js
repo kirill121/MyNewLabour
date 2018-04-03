@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const employerController = require('../controllers/employer_controller');
+const middleware = require('../controllers/rating_function')
 
 const passportService = require('../services/passport');
 const passport = require('passport');
@@ -24,6 +25,10 @@ router.get('/view/:id', employerController.viewSpecific);
 router.get('/update/:id', employerController.viewUpdate);
 router.get('/:id/employeeView', employerController.viewEmployees);
 
+router.post('/:id/employeeRate', middleware.rating, (req, res, next) => {	
+	console.log('Added Rating')
+})
+router.post('/:id/remove', employerController.remove)
 router.post('/hire/:employeeId', employerController.hireEmployee)
 router.post('/:id/employeeDelete', employerController.deleteEmployee);
 router.post('/update/:id', employerController.update);

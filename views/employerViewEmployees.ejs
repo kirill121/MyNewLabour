@@ -35,7 +35,9 @@
         <li>Employee Surname: <%= employee.lastName %> </li>
         <li>Employee Email: <%= employee.email %> </li>
         <li>Date Of Birth: <%= employee.day %> <%= employee.month %> <%= employee.year %> </li>
-        <a href="/employers/hire/<%= employee.id %>"><button>Hire person</button></a>          
+        <form method='post' action="/employers/hire/<%= employee.id %>">
+            <a href="/employers/view/<%= employee.id %>"><button>Hire Person</button></a>
+        </form>            
         <br>
         <hr>
 
@@ -54,7 +56,9 @@
         <li>Employee Surname: <%= employee.lastName %> </li>
         <li>Employee Email: <%= employee.email %> </li>
         <li>Date Of Birth: <%= employee.day %> <%= employee.month %> <%= employee.year %> </li>
-        <a href="/employers/hire/<%= employee.id %>"><button>Hire Person</button></a>          
+        <form method='post' action="/employers/hire/<%= employee.id %>">
+            <a href="/employers/view/<%= employee.id %>"><button>Hire Person</button></a>
+        </form>            
         <br>
         <hr>
 

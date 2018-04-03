@@ -1,6 +1,9 @@
 const Employer = require('../models/employers');
 const Employees = require('../models/employees');
 
+
+
+
 module.exports = {
 
 	viewAll: function(req, res){
@@ -13,12 +16,11 @@ module.exports = {
 
 	viewSpecific: function(req, res){
 		var employerId = req.user.id
-		Employer.findById(employerId).populate('employments').exec( (err, employer) => {
+		Employer.findById(employerId).populate('employments').populate('pastEmployments').exec( (err, employer) => {
 			if(err){
 				console.log(err)
 			} else {
-				console.log(employer)
-				res.render ('viewEmployer', { user: req.user, employees: employer.employments})
+				res.render ('viewEmployer', { user: req.user, employees: employer.employments, emps: employer.pastEmployments})
 			}
 		})
 	},
@@ -82,19 +84,8 @@ module.exports = {
 								      if (error) {
 								      	console.log(error)
 								      } else {
-
-									  //     	var nameArray = employers.map( employer => {
-											// 	var arr = employer.employments.map( employee => {
-											// 		var obj = {};
-											// 		obj.name = employee.firstName;
-											// 		obj.surname = employee.lastName;
-											// 		obj.telephone = employee.telephoneNo;
-											// 		obj.id = employee.id;
-											// 		return obj;
-											// 	});
-											// 	return arr;
-											// })
-											res.redirect('/employers/view/employerId')
+										console.log(employer)
+										res.redirect('/employers/view/employerId')
 								       } 
 							    	});
 								}
@@ -108,18 +99,17 @@ module.exports = {
 	},
 
 	deleteEmployee: function(req, res){
-		var employeeId = req.params.id
+		var employeeId = req.params.id;
 		var employerId = req.user.id;
-		Employer.findById(employerId, function(err, employer){
+		Employer.findByIdAndUpdate(employerId, {$push: {pastEmployments: employeeId}}, function(err, employer){
 			if(err){
 				console.log(err)
 			} else {
 				var newEmploymentsArray = employer.employments.filter( employee => {
 				return employee != employeeId
 				})
-
 				employer.employments = newEmploymentsArray
-
+				console.log(employer)
 				employer.save(function(err){
 					if(err){
 						console.log(err)
@@ -129,7 +119,30 @@ module.exports = {
 				})
 			}
 		})
-	}			
+	},
+
+	remove: function(req, res){
+		var employeeId = req.params.id;
+		var employerId = req.user.id;
+		Employer.findById(employerId, function(err, employer){
+			if(err){
+				console.log(err)
+			} else {
+				var newEmploymentsArray = employer.pastEmployments.filter( employee => {
+				return employee != employeeId
+				})
+				employer.pastEmployments = newEmploymentsArray
+				console.log(employer)
+				employer.save(function(err){
+					if(err){
+						console.log(err)
+					} else {
+						res.redirect('/employers/view/' + req.user.id)
+					}
+				})
+			}
+		})
+	}
 };	
 
 
