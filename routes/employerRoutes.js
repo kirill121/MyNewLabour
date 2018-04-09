@@ -30,7 +30,7 @@ router.post('/:id/employeeRate', middleware.rating, (req, res, next) => {
 })
 router.post('/:id/remove', employerController.remove)
 router.post('/hire/:employeeId', employerController.hireEmployee)
-router.post('/:id/employeeDelete', employerController.deleteEmployee);
+router.post('/:id/employeeDelete', middleware.pushToPast, employerController.deleteEmployee);
 router.post('/update/:id', employerController.update);
 router.post('/delete/:id', employerController.delete);
 

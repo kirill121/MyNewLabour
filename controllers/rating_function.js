@@ -1,4 +1,5 @@
 const Employees = require('../models/employees');
+const Employer = require('../models/employers')
 var middlewareObj = {};
 
 middlewareObj.rating = function(req, res, next){
@@ -41,6 +42,18 @@ middlewareObj.rating = function(req, res, next){
 					}
 				})
 			}
+	})
+}
+
+middlewareObj.pushToPast = function(req, res, next){
+	var employeeId = req.params.id;
+	var employerId = req.user.id;
+	Employer.findByIdAndUpdate(employerId, {$push: {pastEmployments: employeeId}}, function(err, employer){
+		if(err){
+			console.log(err)
+		} else {
+			next()
+		}
 	})
 }	
 

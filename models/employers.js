@@ -9,7 +9,7 @@ const EmployerSchema = new Schema ({
 	password: {type: String, required: true},
 	companyName: {type: String, required: true},
 	employments: [{type: Schema.Types.ObjectId, ref: 'Employee' }],
-	pastEmployments: [{type: Schema.Types.ObjectId, ref: 'Employee'}]
+	pastEmployments: [{type: Schema.Types.Mixed, ref: 'Employee'}]
 })
 
 EmployerSchema.pre('save', function(next){

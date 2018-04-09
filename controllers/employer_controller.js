@@ -101,13 +101,15 @@ module.exports = {
 	deleteEmployee: function(req, res){
 		var employeeId = req.params.id;
 		var employerId = req.user.id;
-		Employer.findByIdAndUpdate(employerId, {$push: {pastEmployments: employeeId}}, function(err, employer){
+		Employer.findById(employerId, function(err, employer){
 			if(err){
 				console.log(err)
 			} else {
 				var newEmploymentsArray = employer.employments.filter( employee => {
 				return employee != employeeId
 				})
+				var noDupArray = Array.from(new Set(employer.pastEmployments));
+				employer.pastEmployments = noDupArray;
 				employer.employments = newEmploymentsArray
 				console.log(employer)
 				employer.save(function(err){
