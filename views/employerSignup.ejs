@@ -4,10 +4,10 @@
     <h1 id='writing'>Register As An Employer:</h1>
     <div class="col-lg-3"></div>
     <div class="col-lg-6">
-        <form action='/employerSignup' method='post' id='reg' class="form-horizontal">
+        <form method='post' id='reg' class="form-horizontal">
             <div class='input-group form-group'>
                 <span class="input-group-addon"><i class='glyphicon glyphicon-envelope'></i></span>
-                <input type='text' class='form-control' name='email' placeholder='Email'>
+                <input id='to' type='text' class='form-control' name='email' placeholder='Email'>
             </div>  
             <div class='input-group form-group'>
             	<span class="input-group-addon"><i class='glyphicon glyphicon-wrench'></i></span>
@@ -25,7 +25,7 @@
             	<span class="input-group-addon"><i class='glyphicon glyphicon-briefcase'></i></span>
                 <input  type='text' class='form-control' name='companyName' placeholder='Company Name'>
             </div>        
-            <button type='submit' class='btn btn-primary btn-block form'>Sign Up</button>
+            <button id='send_email' type='submit' class='btn btn-primary btn-block form'>Sign Up</button>
         </form>
     </div>    
     <div class="col-lg-3"></div>
@@ -41,6 +41,21 @@
       else {form.classList.remove("input-group");
         }
     };
+    $(document).ready(function(){
+        console.log('RORFOL')
+        var from,to,subject,text;
+        $("#send_email").click(function(){      
+            to=$("#to").val();      
+            console.log("Sending E-mail...Please wait");
+            $.get("http://localhost:3000/empsignup",{to:to},function(data){
+                if(data=="sent")
+                {
+                    console.log('Email has been sent')
+                }
+
+            });
+        });
+    });
 </script>
 
 <%- include partials/footer %>
