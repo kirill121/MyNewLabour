@@ -1,0 +1,24 @@
+<% include partials/header %>
+
+<div>
+  <span><h1>Bricklayer</h1></span>
+  <ul> 
+  <% employees.forEach( employee => { %>
+    <% if(employee.labourType == "Bricklayer")  { %>
+
+        <li>Employee Profession: <%= employee.labourType %> </li>
+        <li>Employee Name: <%= employee.firstName %> </li>
+        <li>Employee Surname: <%= employee.lastName %> </li>
+        <li>Employee Email: <%= employee.email %> </li>
+        <li>Date Of Birth: <%= employee.day %> <%= employee.month %> <%= employee.year %> </li>
+        <form method='post' action="/employers/hire/<%= employee.id %>">
+            <a href="/employers/view/<%= employee.id %>"><button>Hire Person</button></a>
+        </form>            
+        <br>
+
+    <% } %>
+  <%})%>
+  </ul>
+</div>
+
+<% include partials/footer %>

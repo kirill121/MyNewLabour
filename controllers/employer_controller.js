@@ -144,6 +144,36 @@ module.exports = {
 				})
 			}
 		})
+	},
+
+	chooseEmployee: function(req, res){
+		var user = req.user
+		res.render('chooseEmployee', {user})
+	},
+
+	chooseBricklayer: function(req, res){
+		var user = req.user;
+		Employees.find({}, (err, employees) => {
+			if(err){
+				console.log(err)
+			} else { res.render('chooseBricklayer', { employees, user }) }
+		})	
+	},
+	choosePainter: function(req, res){
+		var user = req.user;
+		Employees.find({}, (err, employees) => {
+			if(err){
+				console.log(err)
+			} else { res.render('choosePainter', { employees, user }) }
+		})	
+	},
+	chooseManual: function(req, res){
+		var user = req.user;
+		Employees.find({}, (err, employees) => {
+			if(err){
+				console.log(err)
+			} else { res.render('chooseManual', { employees, user }) }
+		})	
 	}
 };	
 

@@ -1,23 +1,34 @@
 <% include partials/header %>
+
 <div class='container'>	
 	<div class='row'>
 		<div class="col-md-12" id='welcomeBox'>
-			<h1>Welcome: <%= user.firstName %></h1>
-				<ul>
-					<li>Employer Email: <%= user.email %></li>
-					<li>Employer Company: <%= user.companyName %></li>		
-					<br>
-					<a href='/employers/update/<%= user.id %>'><button>Update Employer</button></a>
-					<form method='post' action='/employers/delete/<%= user.id %>'>
-			        <a><button>Delete Employer</button></a>
-			        </form>
-			        <a href="/employers/<%= user.id %>/employeeView"><button>Click to hire employees</button></a>
-				</ul>
-			</div>
+			<div id='coupled'>
+				<h1>Welcome <%= user.firstName[0].toUpperCase() + user.firstName.substring(1) %></h1>
+					<div class='PS'>
+						<button type="button" class="btn btn-info">Profile Settings</button>		
+						<div class='profileSettings'>
+							<a href='/employers/update/<%= user.id %>' type="button" class="btn btn-primary">Update your profile</a>
+							<form method='post' action='/employers/delete/<%= user.id %>' id='deleteForm'>
+				        		<a type="button" class="btn btn-primary">Delete your profile</a>
+				        	</form>
+						</div>
+					</div>
+			</div>	
 		</div>	
-</div>				
+	</div>	
+</div>
+
+<!-- <a href="/employers/<%= user.id %>/employeeView"><button id='hireButton'>Hire an employee</button></a>	 -->
+
+<a href="/employers/<%= user.id %>/chooseEmployee"><button id='hireButton'>Hire an employee</button></a>	
 
 <div class='container' id='employmentsBox'>
+	<div id='CN'>		
+		<ul>
+			Company Profile: <%= user.companyName %>
+		</ul>
+	</div>
 	<div class='row'>		
 		<div class='col-md-3 Emp' id="divvy">
 			<h4>CURRENT EMPLOYMENTS</h4>
@@ -53,7 +64,7 @@
 		</div>
 		<div class='col-md-3 pastEmp'>
 				<div id='divvy'>
-				<h4>Past Employments</h4>
+				<h4>PAST EMPLOYMENTS</h4>
 				<% emps.forEach( employee => { %>	
 					<li>Employee Name: <%= employee.firstName %></li>
 					<form method='post' action='/employers/<%= employee.id %>/remove'>

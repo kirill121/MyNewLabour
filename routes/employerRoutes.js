@@ -24,6 +24,10 @@ router.get('/:id', employerController.viewSpecific)
 router.get('/view/:id', employerController.viewSpecific);
 router.get('/update/:id', employerController.viewUpdate);
 router.get('/:id/employeeView', employerController.viewEmployees);
+router.get('/:id/chooseEmployee', employerController.chooseEmployee)
+router.get('/viewEmployees/viewBricklayers', employerController.chooseBricklayer)
+router.get('/viewEmployees/viewPainters', employerController.choosePainter)
+router.get('/viewEmployees/viewManual', employerController.chooseManual)
 
 router.post('/:id/employeeRate', middleware.rating, (req, res, next) => {	
 	console.log('Added Rating')

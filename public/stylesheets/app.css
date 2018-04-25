@@ -342,14 +342,39 @@ div #button2:hover {
 }
 
 #welcomeBox {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
   margin-left: 800px;
   font-family: 'Libre Baskerville', sans-serif;
   color: #F7FE27;
 }
 
+#coupled {
+  display: flex;
+  flex-direction: row;
+}
+
+.PS {
+  margin-top: 20px;
+  margin-left: 10px;
+}
+
+#welcomeBox ul {
+  list-style: none;
+}
+
+#CN {
+  font-family: 'Libre Baskerville', sans-serif;
+  color: #F7FE27;
+  list-style: none;
+  font-size: 30px;
+  margin-left: 300px;
+}
+
 #employmentsBox {
   position: relative;
-  margin-top: 250px;
+  margin-top: 200px;
   margin-left: 600px;
 }
 
@@ -360,9 +385,9 @@ div #button2:hover {
   }
   #welcomeBox {
     width: 400px;
-    height: 200px;
+    height: 150px;
     margin-left: 0px;
-    margin-top: 80px;
+    margin-top: 50px;
   }
   .Emp {
     margin-left: 20px;
@@ -471,4 +496,95 @@ div #button2:hover {
   font-size: 20px;
   font-family: 'Libre Baskerville', sans-serif;
 }
+
+#deleteForm {
+  width: 140px;
+}
+
+.profileSettings {
+  visibility: hidden;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.profile {
+  display: flex;
+  flex-wrap: wrap;
+  visibility: visible;
+}
+
+#hireButton {
+  margin-left: 1200px;
+  margin-top: 150px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #F7FE27;
+  font-size: 30px;
+  font-family: 'Gloria Hallelujah', sans-serif;
+  transition: transform 500ms 100ms;
+  padding: 0px;
+  border: none;
+  background: none;
+  outline: inherit;
+}
+
+#hireButton:hover {
+  text-decoration: none;
+  transition: all 0.35s ease-in-out;
+  transform: scale(1.5);
+  color: #F7FE27;
+}
+
+@media screen and (max-width: 900px) {
+  #hireButton {
+    margin-left: 80px;
+    margin-top: 0px;
+  }
+  #CN {
+    font-size: 20px;
+    margin-left: 30px;
+  }
+}
+
+.pic1 {
+  width: 200px;
+  height: 200px;
+  transition: transform 500ms 100ms;
+}
+
+.pic2 {
+  width: 200px;
+  height: 200px;
+  transition: transform 500ms 100ms;
+}
+
+.pic3 {
+  width: 200px;
+  height: 200px;
+  transition: transform 500ms 100ms;
+}
+
+#chooseEmployeeHeader {
+  font-family: 'Libre Baskerville', sans-serif;
+  margin-left: 950px;
+  color: #F7FE27;
+}
+
+#chooseEmployeePics:hover {
+  text-decoration: none;
+  transition: all 0.5s ease-in-out;
+  transform: scale(1.5);
+}
+
+#chooseEmployee {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 700px;
+  margin-top: 400px;
+  margin-right: 200px;
+  font-family: 'Libre Baskerville', sans-serif;
+  color: #F7FE27;
+}
+
+
 
