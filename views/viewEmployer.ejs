@@ -42,7 +42,7 @@
 					<% } else { %>
 						<li id='empDetails'>Employee Rating: <%= employee.rating[employee.rating.length - 1] %>/5</li>
 					<%	} %>
-					<div class='popup'><button>Click To Rate Employee</button>
+					<div class='popup'><button class='btn btn-primary'>Click To Rate Employee</button>
 						<div class="popuptext" id="myPopup">
 							<form method='post' action='/employers/<%= employee.id %>/employeeRate'>
 								<div id='hero'>Rate This Employee</div>
@@ -57,7 +57,7 @@
 						</div>
 					</div>
 				<form method='post' action='/employers/<%= employee.id %>/employeeDelete'>
-						<input type="submit" value="Delete employee">
+						<input class='btn btn-primary' type="submit" value="Delete employee">
 				</form>	
 			 	 <%	 }) %>
 				</ul> 

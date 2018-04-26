@@ -191,7 +191,7 @@ section {
     font-size: 17px;
     display: inline-block;
     margin: auto;
-    margin-left: 50px;
+    margin-left: 30px;
     margin-top: 70px;
     text-align: left;
   }
@@ -585,6 +585,105 @@ div #button2:hover {
   font-family: 'Libre Baskerville', sans-serif;
   color: #F7FE27;
 }
+
+#painterHeader {
+  margin-left: 30px;
+}
+
+@media screen and (max-width: 800px) {
+    #chooseEmployee {
+      flex-direction: column;
+      margin-left: 120px;
+      margin-top: 0px;
+    }
+    #chooseEmployeeHeader {
+      margin-top: 60px;
+      font-size: 18px;
+      margin-left: 15px;
+      word-wrap: normal; 
+    }
+    .pic1 {
+      width: 150px;
+      height: 150px;
+    }
+    .pic2 {
+      width: 150px;
+      height: 150px;
+    }
+    .pic3 {
+      width: 150px;
+      height: 150px;
+    }
+    #chooseEmployee h1 {
+      font-size: 30px;
+    }
+    #painterHeader {
+      margin-left: 10px;
+    }      
+}
+
+#selectEmployee {
+  position: relative;
+  width: 600px;
+  height: 600px;
+  border: 10px
+  border-color: #4CAF50;
+  padding: 10px;
+  word-wrap: break-word;
+  overflow-y: scroll;
+  text-align: center;
+  background: url(paper.jpg);
+  color: black;
+  border-radius: 10px;
+}
+
+#bricklayerBox {
+  margin-left: 1100px;
+  margin-top: 150px;
+}
+
+#chooseH1 {
+  margin-left: 100px;
+  font-family: 'Libre Baskerville', sans-serif;
+  color: #F7FE27;
+}
+
+#chooseH12 {
+  font-family: 'Libre Baskerville', sans-serif;
+  color: #F7FE27;
+  margin-left: 60px;
+}
+
+.H12 {
+  margin-left: 120px;
+  font-family: 'Libre Baskerville', sans-serif;
+  color: #F7FE27;
+}
+
+@media screen and (max-width: 800px){
+  #bricklayerBox {
+    margin-left: 10px;
+    margin-top: 50px;
+  }
+  #selectEmployee {
+    margin-left: 20px;
+    width: 400px;
+  }
+  #chooseH1 {
+    margin-left: 10px;
+  }
+  #chooseH12 {
+    margin-left: 15px;
+    font-size: 30px;
+  }
+  .H12 {
+    margin-left: 40px;
+  }
+}
+
+#loginForm {
+  border-radius: 10px;
+}  
 
 
 
