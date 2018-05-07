@@ -345,7 +345,7 @@ div #button2:hover {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  margin-left: 800px;
+  margin-left: 720px;
   font-family: 'Libre Baskerville', sans-serif;
   color: #F7FE27;
 }
@@ -394,6 +394,9 @@ div #button2:hover {
   }
   .pastEmp {
     padding: 20px;
+  }
+  .employeeWC {
+    margin-left: 0px;
   }
   #divvy {
     position: relative;
@@ -683,7 +686,48 @@ div #button2:hover {
 
 #loginForm {
   border-radius: 10px;
-}  
+}
 
+#logIn {
+  margin-left: 180px;
+  font-family: 'Libre Baskerville', sans-serif;
+  color: #F7FE27;
+}
+
+.employeeWC {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-left: 450px;
+  font-family: 'Libre Baskerville', sans-serif;
+  color: #F7FE27;  
+}
+
+@media screen and (max-width: 800px){
+  .employeeWC {
+    margin-left: 30px;
+  }
+}
+
+.dateOfBirth {
+  display: flex;
+}
+
+#write {
+  font-family: 'Libre Baskerville', sans-serif;
+  font-size: 15px;
+}
+
+#employeeReg {
+  font-family: 'Libre Baskerville', sans-serif;
+  color: #F7FE27;
+  margin-left: 60px;
+}
+
+#updateEmHeader {
+  margin-left: 800px;
+  font-family: 'Libre Baskerville', sans-serif;
+  color: #F7FE27;
+}
 
 

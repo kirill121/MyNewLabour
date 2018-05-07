@@ -18,9 +18,9 @@ const requireAuth = passport.authenticate('jwt', { session: false });
 const requireLogin = passport.authenticate('local', { session: false });
 
 
-// mongoose.connect('mongodb://kirill:password@ds119533.mlab.com:19533/labourfi', {
-// 	useMongoClient: true
-// })
+mongoose.connect('mongodb://kirill:password@ds119533.mlab.com:19533/labourfi', {
+	useMongoClient: true
+})
 
 mongoose.connect('mongodb://localhost/employer_database', {
 	useMongoClient: true
@@ -38,18 +38,17 @@ var smtpTransport = nodemailer.createTransport({
     service: "Gmail",
     auth: {
         user: "k.kholine@elium.academy",
-        pass: ""
+        pass: "warry12345"
     }
 });
 
 var rand, mailOptions, host, link;
 
 app.get('/empsignup', function(req, res, next){
-	console.log(req.query.to)
-    rand=Math.floor((Math.random() * 100) + 54);
-    host=req.get('host');
-    link='http://localhost:3000/login?id='+rand
-    mailOptions={
+    rand = Math.floor((Math.random() * 100) + 54);
+    host = req.get('host');
+    link = 'http://localhost:3000/login?id='+rand
+    mailOptions = {
         to : req.query.to,
         subject : "Please confirm your Email account",
         html : "Hello,<br> Please Click on the link to verify your email.<br><a href="+link+">Click here to verify</a>" 
@@ -103,7 +102,7 @@ app.get('/employerHome', requireAuth, (req, res) => {
 	res.render('employerHome', {user: req.user})
 });
 
-app.get('/employeeHome', requireAuth, (req, res) => {
+app.get('/employees/view', requireAuth, (req, res) => {
 	res.render('employeeHome', {user: req.user})
 });
 

@@ -102,6 +102,19 @@ module.exports = {
 		});
 	},
 
+	employeeUpdate: function(req, res) {
+		var employeeid = req.params.id;
+		Employee.findByIdAndUpdate(employeeid, {
+			labourType: req.body.labour,
+			email: req.body.email,
+			password: req.body.password
+		}, (err) => {
+			if(err){
+				console.log(err)
+			} else { res.redirect('/employees/view/employee') }
+		})
+	},
+
 	employeeSignup: function(req, res, next){
 		const labourType = req.body.labour;
 		const firstName = req.body.name;
@@ -109,9 +122,9 @@ module.exports = {
 		const telephoneNo = req.body.telephone;
 		const email = req.body.email;
 		const password = req.body.password;
-		const day = req.body.day;
-		const month = req.body.month;
-		const year = req.body.year;
+		const day = req.body.Day;
+		const month = req.body.Month;
+		const year = req.body.Year;
 
 		if(!labourType || !firstName || !lastName || !email || !password || !day || !month || !year ){
 			return res.status(422).send({error: 'Please fill out all paths'});
@@ -162,8 +175,12 @@ module.exports = {
 	login(req, res, next){
 		console.log(req.user)
 		res.cookie('jwt', tokenForUser(req.user), {maxAge: 3600000 * 24 * 7, httpOnly: false});
-		var employerId = req.user.id		
-		res.redirect('/employers/view/employerId')
+		var id = req.user
+		if(req.user.companyName) { 		
+			res.redirect('/employers/view/employer') 
+		} else {
+			res.redirect('/employees/view/employee')
+		}
 	},
 
 	logout(req, res, next){

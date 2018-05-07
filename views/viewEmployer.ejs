@@ -9,8 +9,7 @@
 						<button type="button" class="btn btn-info">Profile Settings</button>		
 						<div class='profileSettings'>
 							<a href='/employers/update/<%= user.id %>' type="button" class="btn btn-primary">Update your profile</a>
-							<form method='post' action='/employers/delete/<%= user.id %>' id='deleteForm'>
-				        		<a type="button" class="btn btn-primary">Delete your profile</a>
+							<form method='post' action='/employers/delete/<%= user.id %>' id='deleteForm'>		<input type="submit" class="btn btn-primary" value="Delete your Profile">
 				        	</form>
 						</div>
 					</div>

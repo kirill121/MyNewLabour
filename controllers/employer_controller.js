@@ -26,20 +26,27 @@ module.exports = {
 	},
 
 	viewUpdate: function(req, res){
-		res.render('viewUpdateEmployer', { user: req.user })
+		const user = req.user
+		res.render('viewUpdateEmployer', { user })
 	},
 
 	update: function (req, res){
 		var employerId = req.user.id;
 		Employer.findByIdAndUpdate(employerId, {
-			firstName: req.body.name,
-			lastName: req.body.surname,
 			email: req.body.email,
 			companyName: req.body.companyName
 		}, (err, update) => {
 			if(err){
 				console.log(err)
-			} else { res.redirect('/employers') }
+			} else { 
+				update.save(function(err){
+					if(err){
+						console.log(err)
+					} else {
+						res.redirect('/employers/view/employerId') 
+						}
+					})
+				}
 		})
 	},
 
@@ -48,7 +55,7 @@ module.exports = {
 		Employer.findByIdAndRemove(employerId, (err) => {
 			if(err){
 				console.log(err)
-			} else { res.redirect('/') }
+			} else { res.redirect('/home') }
 		})
 	},
 

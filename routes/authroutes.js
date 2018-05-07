@@ -18,6 +18,7 @@ router.get('/logout', Authentication.logout)
 router.post('/employerSignup', Authentication.employerSignup)
 router.post('/employeeSignup', Authentication.employeeSignup)
 router.post('/login', requireLogin, Authentication.login)
+router.post('/employees/update/:id', Authentication.employeeUpdate)
 
 module.exports = router;
 

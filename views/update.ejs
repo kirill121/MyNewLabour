@@ -1,32 +1,35 @@
 <% include partials/header %>
   
-  <form method="POST" action="/employees/update/<%= employee.id %>">
-
-<div>
-  <label for="Manual Labour">Manual Labour</label>
-  <input id="Manual Labour" type="radio" name="labour" value="<%= employee.labourType%>">
-  <label for="Bricklayer">Bricklayer</label>
-  <input id="Bricklayer" type="radio" name="labour" value="<%= employee.labourType%>">
-  <label for="Painter">Painter</label>
-  <input id="Painer" type="radio" name="labour" value="<%= employee.labourType%>">    
+<div class="container">
+  <div class="col-lg-3"></div>
+  <div class="col-lg-6">
+    <h1 id='employeeReg'>Employee Registration</h1>
+    <form method="POST" action="/employees/update/<%= user.id %>">
+    <label for="labour" id='write'>Select your labour type..</label>  
+    <div> 
+      <label id='write'>Manual Labour</label>
+      <input type="radio" name="labour" value="Manual Labour">
+      <label id='write'>Bricklayer</label>
+      <input type="radio" name="labour" value="Bricklayer">
+      <label id='write'>Painter</label>
+      <input type="radio" name="labour" value="Painter">    
+    </div>
+    <div class='input-group form-group'>
+      <span class="input-group-addon"><i class='glyphicon glyphicon-phone'></i></span>  
+      <input name='telephone' type='number' class='form-control' placeholder="Mobile Number" required>
+    </div>
+    <div class='input-group form-group'>
+      <span class="input-group-addon"><i class='glyphicon glyphicon-envelope'></i></span>
+            <input id='to' type='text' class='form-control' name='email' placeholder='Email'>
+    </div>  
+    <div class='input-group form-group'>
+      <span class="input-group-addon"><i class='glyphicon glyphicon-wrench'></i></span>
+      <input class='form-control' name='password' type='password' placeholder='Password' pattern=".{5,10}" required title="password must be at least 5 - 10 characters long">
+    </div>
+    <button id='send_email' type='submit' class='btn btn-primary btn-block form'>Update</button>
+    </form>
+  </div>
+  <div class="col-lg-3"></div>
 </div>
-
-
-  <label for="first">First Name</label>
-  <input name="name" id="first" type="text" placeholder="Name" required value="<%= employee.name %>">
-  <label for="second">Last Name</label>
-  <input name="surname" id="second" type="text" placeholder="Surname" required value="<%= employee.surname %>">
-
-
-<div>
-  <label for="email">Email</label>
-  <input name="email" type="email" placeholder="your email" required value="<%= employee.email %>">
-  <label for="password">Password</label>
-  <input name="password" type="password" pattern=".{5,10}" required title="password must be at least 5 - 10 characters long">
-</div>
-
-
-<input type="submit" name="Submit Update">
-</form>
 
 <% include partials/footer %>

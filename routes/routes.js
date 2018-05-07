@@ -16,7 +16,6 @@ router.get('/', employeeController.viewAll);
 router.get('/view/:id', employeeController.viewSpecific);
 router.get('/update/:id', employeeController.viewUpdate);
 
-router.post('/update/:id', employeeController.update);
 router.post('/delete/:id', employeeController.delete);
 
 

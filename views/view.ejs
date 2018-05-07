@@ -1,21 +1,46 @@
 <% include partials/header %>
 
-<h1>Welcome: <%= employee.firstName %></h1>
-    
-    <ul>
-          
-          <li>Employee Profession: <%= employee.labourType %> </li>
-          <li>Employee Name: <%= employee.firstName %> </li>
-          <li>Employee Surname: <%= employee.lastName %> </li>
-          <li>Employee Email: <%= employee.email %> </li>
-          <li>Date Of Birth: <%= employee.day %> <%= employee.month %> <%= employee.year %> </li>
-        <% employers.forEach( (employer) => { %>
-          <li>Employee Past/Current Employers: <%= employer.companyName %></li>
-        <% }) %>  
-          <a href="/employees/update/<%= employee.id %>"><button>Update Employee</button></a>
-          <form method='post' action='/employees/delete/<%= employee.id %>'>
-          <a href="/employees/delete/<%= employee.id %>"><button>Delete this Employee</button></a>
-          </form>
-    </ul>
+<div class='container'> 
+  <div class='row'>
+    <div class="col-md-12 Emp" id='welcomeBox'>
+      <div id='coupled'>
+        <h1>Welcome, <%= employee.firstName[0].toUpperCase() + employee.firstName.substring(1) %></h1>
+          <div class='PS'>
+            <button type="button" class="btn btn-info">Profile Settings</button>    
+            <div class='profileSettings'>
+              <a href="/employees/update/<%= employee.id %>" type="button" class="btn btn-primary">Update your profile</a>
+              <form method='post' action="/employees/delete/<%= employee.id %>" id='deleteForm'>
+                    <a type="button" class="btn btn-primary">Delete your profile</a>
+                  </form>
+            </div>
+          </div>
+      </div>  
+    </div>  
+  </div>  
+</div>
+
+<div class='container' id='employmentsBox'>  
+  <div class='row'>
+    <div class='col-md-3'></div>
+      <div class='col-md-6 Emp employeeWC' id="divvy" style='font-size: 18px'>    
+          <ul>             
+              <li>Name: <%= employee.firstName %> </li>
+              <li>Surname: <%= employee.lastName %> </li>
+              <li>Email: <%= employee.email %> </li>
+              <li>Date Of Birth: <%= employee.day %> <%= employee.month %> <%= employee.year %> </li>
+            <% employers.forEach( (employer) => { %>
+              <% if(employer.companyName != -1)  { %>
+                <li>Your Past/Current Employers: <%= employer.companyName %></li>
+              <% } %>  
+            <% }) %>
+              <li>Your Profession: <%= employee.labourType %></li>
+              <li>Your Rating: <%= employee.rating.slice(-1) %></li>
+          </ul>
+      </div>
+      <div class='col-md-3'></div>  
+  </div>
+</div>
+
+<script type="text/javascript" src="/stylesheets/viewEmployerFunctions.js"></script>
 
 <% include partials/footer %>

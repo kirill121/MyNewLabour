@@ -21,8 +21,9 @@ module.exports = {
 				Employee.findById(employeeid).populate('employer').exec( (error, employeeToPopulate) => {
 					if(error){
 						console.log(error)
-					} else {	
-						res.render('view', { employee, user, employers: employeeToPopulate.employer })	
+					} else {
+						const noDupArr = [...(new Set(employeeToPopulate.employer))];	
+						res.render('view', { employee, user, employers: noDupArr })	
 					}
 				})
 			  }
@@ -44,14 +45,12 @@ module.exports = {
 		var employeeid = req.params.id;
 		Employee.findByIdAndUpdate(employeeid, {
 			labourType: req.body.labour,
-			firstName:req.body.name,
-			lastName: req.body.surname,
 			email: req.body.email,
 			password: req.body.password
 		}, (err) => {
 			if(err){
 				console.log(err)
-			} else { res.redirect('/employees') }
+			} else { res.redirect('/home') }
 		})
 	},
 
