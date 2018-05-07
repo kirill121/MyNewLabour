@@ -38,7 +38,7 @@ var smtpTransport = nodemailer.createTransport({
     service: "Gmail",
     auth: {
         user: "k.kholine@elium.academy",
-        pass: "warry12345"
+        pass: ""
     }
 });
 
