@@ -4,6 +4,19 @@
   box-sizing: border-box;
 }
 
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
 body {
   background: url(labourfibackground.jpg);
   top: 0;
@@ -15,6 +28,12 @@ body {
   min-width: 1024px;
   height: auto;
   position: fixed;
+  overflow-y: scroll;
+}
+
+#boxes {
+  width: 1100px;
+  display: flex;
 }
 
 html {
@@ -29,7 +48,6 @@ form .reg {
 }
 
 #divvy {
-  position: relative;
   width: 600px;
   height: 300px;
   border: 10px
@@ -41,6 +59,12 @@ form .reg {
   background: url(paper.jpg);
   color: black;
   border-radius: 10px;
+  margin: 30px;
+}
+
+#employerProfile {
+  display: flex;
+  flex-direction: column;
 }
 
 ::-webkit-scrollbar {
@@ -86,14 +110,16 @@ form .reg {
 
 section {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 250px;
-  margin-left: 450px;
-  padding: 100px 80px;
-  position: relative;
+  flex-direction: row;
   justify-content: center;
-  min-height: 10vh;
+}
+
+.mHome {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100vw;
+  float: left;
 }
 
 .SUB {
@@ -115,9 +141,14 @@ section {
 
 .line {
   font-family: 'Libre Baskerville', sans-serif;
-  margin-left: 1020px;
   color: #F7FE27;
   font-size: 30px;
+  margin-left: 1000px;
+}
+
+.divButton {
+  margin-left: 500px;
+  margin-top: 200px;
 }
 
 /*nav bar configuration*/
@@ -186,37 +217,37 @@ section {
   }
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1000px) {
   .line {
-    font-size: 17px;
-    display: inline-block;
-    margin: auto;
-    margin-left: 30px;
-    margin-top: 70px;
-    text-align: left;
+    font-size: 15px;
+    margin-left: 0px;
+  }
+  .divButton {
+    margin-left: 0px;
+    margin-top: 0px;
   }
 }
 
-@media screen and (max-width: 1400px) {
-  section {
-    transform: translate(-50%, -50%);  
-    margin-left: 700px;
-    margin-top: 300px;
-    text-align: left;
+@media screen and (max-width: 600px){
+  .mHome {
+    margin-top: 50px;
   }
 }
+
+/*@media screen and (max-width: 1400px) {
+  section {
+    transform: translate(-50%, -50%);  
+  }
+}*/
 
 @media screen and (max-width: 900px) {
-  section {
+/*  section {
     transform: translate(-50%, -50%);  
-    margin-left: 200px;
-    margin-top: 200px;
-    text-align: left;
-  }
-  section a.SUB {
+  }*/
+  .SUB {
     font-size: 70px;
   }
-  section a.SUB:hover {
+  .SUB:hover {
     transition: all 0.35s ease-in-out;
     transform: scale(1.2);
     color: #F7FE27;
@@ -301,8 +332,8 @@ div #button2:hover {
     position: static;
     margin-top: 0px;
     margin-left: 0px;
-    height: 400px;
-    width: 400px;
+    height: 350px;
+    width: 350px;
   }
     div.employmentbuttons {
     display: flex;
@@ -329,10 +360,6 @@ div #button2:hover {
     position: absolute;
     text-align: left;
   }
-  .col-lg-6 {
-    margin-top: 80px;
-    margin-left: 120px;
-  }
 }
 
 #writing {
@@ -343,25 +370,34 @@ div #button2:hover {
 
 #welcomeBox {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   flex-wrap: wrap;
   margin-left: 720px;
   font-family: 'Libre Baskerville', sans-serif;
   color: #F7FE27;
 }
 
-#coupled {
+/*#coupled {
   display: flex;
   flex-direction: row;
-}
+}*/
 
-.PS {
+/*.PS {
   margin-top: 20px;
   margin-left: 10px;
-}
+}*/
 
 #welcomeBox ul {
   list-style: none;
+}
+
+.boxed {
+  margin-left: 350px;
+  width: 600px;
+}
+
+#stuff {
+  margin-top: 10%;
 }
 
 #CN {
@@ -369,13 +405,7 @@ div #button2:hover {
   color: #F7FE27;
   list-style: none;
   font-size: 30px;
-  margin-left: 300px;
-}
-
-#employmentsBox {
-  position: relative;
-  margin-top: 200px;
-  margin-left: 600px;
+  margin-left: 710px;
 }
 
 @media screen and (max-width: 900px){
@@ -384,26 +414,25 @@ div #button2:hover {
     margin-left: 0px;
   }
   #welcomeBox {
-    width: 400px;
+/*    width: 400px;
     height: 150px;
     margin-left: 0px;
-    margin-top: 50px;
+    margin-top: 50px;*/
   }
-  .Emp {
+/*  .Emp {
     margin-left: 20px;
-  }
-  .pastEmp {
+  }*/
+/*  .pastEmp {
     padding: 20px;
-  }
+  }*/
   .employeeWC {
     margin-left: 0px;
   }
   #divvy {
-    position: relative;
     width: 400px;
     height: 200px;
     border: 10px;
-    padding: 10px;
+    overflow: hidden;
     word-wrap: break-word;
     overflow-y: scroll;
     text-align: center;
@@ -517,8 +546,6 @@ div #button2:hover {
 }
 
 #hireButton {
-  margin-left: 1200px;
-  margin-top: 150px;
   text-transform: uppercase;
   font-weight: bold;
   color: #F7FE27;
@@ -531,6 +558,10 @@ div #button2:hover {
   outline: inherit;
 }
 
+#HB {
+  margin-left: 65%;
+}
+
 #hireButton:hover {
   text-decoration: none;
   transition: all 0.35s ease-in-out;
@@ -538,14 +569,39 @@ div #button2:hover {
   color: #F7FE27;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1000px) {
+  #welcomeBox {
+    margin-left: 0%;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+  }
+  #WCB {
+    font-size: 30px;
+  }
+  #HB {
+    margin-left: 0%;
+  }
   #hireButton {
-    margin-left: 80px;
-    margin-top: 0px;
+    font-size: 20px;
+    margin-left: 50px;
   }
   #CN {
     font-size: 20px;
-    margin-left: 30px;
+    margin-left: 50px;
+  }
+  .boxed {
+    margin-left: 0px;
+    display: flex;
+    flex-direction: column;
+  }
+  #stuff {
+    margin-top: 0px;
+  }
+  #divvy {
+    padding: 0px;
+    margin: 0px;
+    width: 350px;
   }
 }
 
@@ -596,13 +652,13 @@ div #button2:hover {
 @media screen and (max-width: 800px) {
     #chooseEmployee {
       flex-direction: column;
-      margin-left: 120px;
+      margin-left: 50px;
       margin-top: 0px;
     }
     #chooseEmployeeHeader {
       margin-top: 60px;
-      font-size: 18px;
-      margin-left: 15px;
+      font-size: 13px;
+      margin-left: 25px;
       word-wrap: normal; 
     }
     .pic1 {
@@ -670,17 +726,19 @@ div #button2:hover {
   }
   #selectEmployee {
     margin-left: 20px;
-    width: 400px;
+    width: 300px;
   }
   #chooseH1 {
     margin-left: 10px;
+    font-size: 25px;
   }
   #chooseH12 {
-    margin-left: 15px;
-    font-size: 30px;
+    margin-left: 10px;
+    font-size: 25px;
   }
   .H12 {
-    margin-left: 40px;
+    margin-left: 10px;
+    font-size: 25px;
   }
 }
 
@@ -689,9 +747,11 @@ div #button2:hover {
 }
 
 #logIn {
-  margin-left: 180px;
+  margin-left: 10px;
   font-family: 'Libre Baskerville', sans-serif;
   color: #F7FE27;
+  display: flex;
+  justify-content: center;
 }
 
 .employeeWC {
@@ -730,4 +790,33 @@ div #button2:hover {
   color: #F7FE27;
 }
 
+[class*="col-"] {
+    float: left;
+    padding: 15px;
+}
+
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  float: left;
+  margin-top: 330px;
+}
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    [class*="col-"] {
+        width: 100%;
+    }
+    .main {
+      margin-top: 50px;
+      padding-right: 20px;
+    }
+}
 
