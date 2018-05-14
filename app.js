@@ -18,13 +18,13 @@ const requireAuth = passport.authenticate('jwt', { session: false });
 const requireLogin = passport.authenticate('local', { session: false });
 
 
-// mongoose.connect('mongodb://kirill:password@ds119533.mlab.com:19533/labourfi', {
-// 	useMongoClient: true
-// })
-
-mongoose.connect('mongodb://localhost/employer_database', {
+mongoose.connect('mongodb://kirill:password@ds119533.mlab.com:19533/labourfi', {
 	useMongoClient: true
 })
+
+// mongoose.connect('mongodb://localhost/employer_database', {
+// 	useMongoClient: true
+// })
 
 app.set('view engine', 'ejs');
 app.set('view cache', false);
