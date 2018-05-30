@@ -1,28 +1,29 @@
 <% include partials/header %>
 
 <div class='container' id='bricklayerBox'>
-	<div>
-		<h1 id='chooseH1'>Available Bricklayers</h1>
-	</div>
-	<div class='row'>
-		<div id='selectEmployee'>
-		  <ul> 
-		  <% employees.forEach( employee => { %>
-		    <% if(employee.labourType == "Bricklayer")  { %>
-		        <li>Employee Profession: <%= employee.labourType %> </li>
-		        <li>Employee Name: <%= employee.firstName %> </li>
-		        <li>Employee Surname: <%= employee.lastName %> </li>
-		        <li>Employee Email: <%= employee.email %> </li>
-		        <li>Date Of Birth: <%= employee.day %> <%= employee.month %> <%= employee.year %> </li>
-		        <form method='post' action="/employers/hire/<%= employee.id %>">
-		            <a href="/employers/view/<%= employee.id %>"><button>Hire Person</button></a>
-		        </form>            
-		        <br>
-		    <% } %>
-		  <%})%>
-		  </ul>
-		</div>
-	</div>	
+  <div class='col-lg-6'></div>
+  <div class='col-lg-6'>
+    <div>
+      <h1 id='chooseH12'>Available Bricklayers</h1>
+    </div>
+    <div id='selectEmployee'>
+      <ul> 
+        <% employees.forEach( employee => { %>
+          <% if(employee.labourType == "Bricklayer")  { %>
+
+              <li>Employee Profession: <%= employee.labourType %> </li>
+              <li>Employee Name: <%= employee.firstName %> </li>
+              <li>Employee Surname: <%= employee.lastName %> </li>
+              <li>Employee Email: <%= employee.email %> </li>
+              <li>Date Of Birth: <%= employee.day %> <%= employee.month %> <%= employee.year %> </li> 
+                <form method='post' action="/employers/hire/<%= employee.id %>">
+                  <a href="/employers/view/<%= employee.id %>"><button>Hire Person</button></a>
+                </form>         
+          <% } %>
+        <%})%>
+      </ul>
+    </div>
+  </div> 
 </div>
 
 <% include partials/footer %>

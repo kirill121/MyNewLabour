@@ -1,19 +1,26 @@
 <% include partials/header %>
+<div class='col-lg-6 col-md-3 col-sm-2 hidden-xs'>
+</div>
+<div class='col-lg-6 col-md-9 col-sm-10'>
+	<h1 id='chooseEmployeeHeader'>Select the type of worker you are looking for..</h1>
+</div>
 
-<h1 id='chooseEmployeeHeader'>Select the type of worker you are looking for..</h1>
 
-<div id='chooseEmployee'>
-	<div>
-		<h1>Bricklayer</h1>
-		<a href="/employers/viewEmployees/viewBricklayers"><img class='pic1' id='chooseEmployeePics' alt='pic1' src='/bricks.png' /></a>
-	</div>
-	<div>
-		<h1>Manual Labour</h1>	
-		<a href="/employers/viewEmployees/viewManual"><img class='pic2' style='margin-left:20px' id='chooseEmployeePics' alt='pic2' src='/shovel.png' /></a>
-	</div>
-	<div>
-		<h1 id='painterHeader'>Painter</h1>	
-		<a href="/employers/viewEmployees/viewPainters"><img class='pic3' id='chooseEmployeePics' alt='pic3' src='/rollerfix.png' /></a>
+<div class='container'>
+	<div class='col-lg-2 hidden-md hidden-sm hidden-xs'></div>
+	<div id='chooseEmployee' class='col-lg-10 col-md-12 col-sm-12'>
+		<div id='empPics'>
+			<h1>Bricklayer</h1>
+			<a href="/employers/viewEmployees/viewBricklayers"><img class='pic1' id='chooseEmployeePics' alt='pic1' src='/bricks.png' /></a>
+		</div>
+		<div id='empPics'>
+			<h1>Manual Labour</h1>	
+			<a href="/employers/viewEmployees/viewManual"><img class='pic2'id='chooseEmployeePics' alt='pic2' style='margin-left: 35px' src='/shovel.png' /></a>
+		</div>
+		<div id='empPics'>
+			<h1 id='painterHeader'>Painter</h1>	
+			<a href="/employers/viewEmployees/viewPainters"><img class='pic3' id='chooseEmployeePics' alt='pic3' src='/rollerfix.png' /></a>
+		</div>
 	</div>
 </div>	
 

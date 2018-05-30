@@ -1,10 +1,11 @@
 <% include partials/header %>
 
 <div class='container' id='bricklayerBox'>
-  <div>
-    <h1 id='chooseH12'>Available Manual Labour</h1>
-  </div>
-  <div class='row'>
+  <div class='col-lg-6'></div>
+  <div class='col-lg-6'>
+    <div>
+      <h1 id='chooseH12'>Available Manual Labour</h1>
+    </div>
     <div id='selectEmployee'>
       <ul> 
         <% employees.forEach( employee => { %>
@@ -22,7 +23,7 @@
         <%})%>
       </ul>
     </div>
-  </div>  
+  </div> 
 </div>
 
 <% include partials/footer %>

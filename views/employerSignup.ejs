@@ -1,20 +1,20 @@
 <%- include partials/header %>
 
 <div class="container" id='ESU'>
-    <h1 id='writing'>Register As An Employer:</h1>
-    <div class="col-lg-3"></div>
-    <div class="col-lg-6">
+    <div class="col-lg-3 col-md-2 col-sm-1"></div>
+    <div class="col-lg-6 col-md-7 col-sm-9 col-xs-12">
+        <h1 id='writing'>Register As An Employer:</h1>
         <form method='post' id='reg' class="form-horizontal">
             <div class='input-group form-group'>
                 <span class="input-group-addon"><i class='glyphicon glyphicon-envelope'></i></span>
                 <input id='to' type='text' class='form-control' name='email' placeholder='Email'>
             </div>  
             <div class='input-group form-group'>
-            	<span class="input-group-addon"><i class='glyphicon glyphicon-wrench'></i></span>
+                <span class="input-group-addon"><i class='glyphicon glyphicon-wrench'></i></span>
                 <input class='form-control' name='password' type='password' placeholder='Password' pattern=".{5,10}" required title="password must be at least 5 - 10 characters long">
             </div>
             <div class='input-group form-group'>
-            	<span class="input-group-addon"><i class='glyphicon glyphicon-user'></i></span>
+                <span class="input-group-addon"><i class='glyphicon glyphicon-user'></i></span>
                 <input type='text' class='form-control' name='name' placeholder='First Name'>
             </div>
             <div class='input-group form-group'>
@@ -22,27 +22,19 @@
                 <input type='text' class='form-control' name='surname' placeholder='Last Name'>
             </div>
             <div class='input-group form-group'>
-            	<span class="input-group-addon"><i class='glyphicon glyphicon-briefcase'></i></span>
+                <span class="input-group-addon"><i class='glyphicon glyphicon-briefcase'></i></span>
                 <input  type='text' class='form-control' name='companyName' placeholder='Company Name'>
             </div>        
             <button id='send_email' type='submit' class='btn btn-primary btn-block form'>Sign Up</button>
         </form>
     </div>    
-    <div class="col-lg-3"></div>
+    <div class="col-lg-3 col-md-3 col-sm-2"></div>
 </div>
 
 <script>
-    document.getElementsByTagName("BODY")[0].onresize = function() {funky()};
-    var form = document.querySelector('.col-lg-6');
-    function funky(){
-      if (window.innerWidth <= 1200) {
-        form.classList.add("input-group");
-      }
-      else {form.classList.remove("input-group");
-        }
-    };
+
     $(document).ready(function(){
-        console.log('RORFOL')
+        console.log('hit reg func')
         var from,to,subject,text;
         $("#send_email").click(function(){      
             to=$("#to").val();

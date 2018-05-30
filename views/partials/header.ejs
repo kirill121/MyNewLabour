@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>LabourFi</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta charset="utf-8">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel='stylesheet' type='text/css' href='/stylesheets/app.css'>
@@ -14,7 +14,7 @@
     </head>
     <body>
     <div class="topnav" id="myTopnav">
-      <div class='subnav'>
+      <div class='subnav' style='z-index: 2;'>
         <% if(user.firstName == 'Guest') { %>  
             <a href="#home" class="active">Labourfi</a>
             <a><strong>Logged in as Guest</strong></a>
