@@ -4,10 +4,25 @@
   box-sizing: border-box;
 }
 
+<<<<<<< HEAD
 html {
   height: 100%;
   width: 100%;
 }
+=======
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+>>>>>>> d9dab232e0f11bdd7f1fa7751bb40e1385aad4da
 
 body {
   background: url(labourfibackground.jpg);
@@ -17,10 +32,26 @@ body {
   height: auto;
   background-size: cover;
   z-index: -1;
+<<<<<<< HEAD
   position: relative;
   overflow-y: scroll;
   overflow-x: hidden;
   background-repeat: no-repeat;
+=======
+  min-width: 1024px;
+  height: auto;
+  position: fixed;
+  overflow-y: scroll;
+}
+
+#boxes {
+  width: 1100px;
+  display: flex;
+}
+
+html {
+    height: 100%;
+>>>>>>> d9dab232e0f11bdd7f1fa7751bb40e1385aad4da
 }
 
 form .reg {
@@ -31,6 +62,10 @@ form .reg {
 }
 
 #divvy {
+<<<<<<< HEAD
+=======
+  width: 600px;
+>>>>>>> d9dab232e0f11bdd7f1fa7751bb40e1385aad4da
   height: 300px;
   border: 10px;
   border-color: #4CAF50;
@@ -40,6 +75,12 @@ form .reg {
   background: url(paper.jpg);
   color: black;
   border-radius: 10px;
+  margin: 30px;
+}
+
+#employerProfile {
+  display: flex;
+  flex-direction: column;
 }
 
 ::-webkit-scrollbar {
@@ -118,6 +159,7 @@ section {
   font-family: 'Libre Baskerville', sans-serif;
   color: #F7FE27;
   font-size: 30px;
+<<<<<<< HEAD
   margin-left: 630px;
 }
 
@@ -141,6 +183,14 @@ section {
   display: flex;
   justify-content: center;
   margin-top: 250px;
+=======
+  margin-left: 1000px;
+}
+
+.divButton {
+  margin-left: 500px;
+  margin-top: 200px;
+>>>>>>> d9dab232e0f11bdd7f1fa7751bb40e1385aad4da
 }
 
 /*nav bar configuration*/
@@ -311,6 +361,7 @@ div a.buttons {
   }
 }
 
+<<<<<<< HEAD
 @media screen and (max-width: 800px) {
   #chooseEmployee {
     flex-direction: column;
@@ -342,6 +393,16 @@ div a.buttons {
   .line {
     font-size: 18px;
     margin-left: 20px;
+=======
+@media screen and (max-width: 1000px) {
+  .line {
+    font-size: 15px;
+    margin-left: 0px;
+  }
+  .divButton {
+    margin-left: 0px;
+    margin-top: 0px;
+>>>>>>> d9dab232e0f11bdd7f1fa7751bb40e1385aad4da
   }
   .divButton {
     margin-left: 20px;
@@ -349,6 +410,7 @@ div a.buttons {
   }    
 }
 
+<<<<<<< HEAD
 @media screen and (max-width: 1000px) {
   .line {
     font-size: 20px;
@@ -439,6 +501,24 @@ div a.buttons {
 }
 
 @media screen and (max-width: 900px) {
+=======
+@media screen and (max-width: 600px){
+  .mHome {
+    margin-top: 50px;
+  }
+}
+
+/*@media screen and (max-width: 1400px) {
+  section {
+    transform: translate(-50%, -50%);  
+  }
+}*/
+
+@media screen and (max-width: 900px) {
+/*  section {
+    transform: translate(-50%, -50%);  
+  }*/
+>>>>>>> d9dab232e0f11bdd7f1fa7751bb40e1385aad4da
   .SUB {
     font-size: 70px;
   }
@@ -549,6 +629,12 @@ div a.buttons {
 
   #bricklayerBox {
     margin-top: 0px;
+<<<<<<< HEAD
+=======
+    margin-left: 0px;
+    height: 350px;
+    width: 350px;
+>>>>>>> d9dab232e0f11bdd7f1fa7751bb40e1385aad4da
   }
 
   .line {
@@ -592,9 +678,12 @@ div a.buttons {
     margin-top: 40px;
     margin-left: 12px;
   }
+<<<<<<< HEAD
   .Emp {
     padding-bottom: 10px;
   }
+=======
+>>>>>>> d9dab232e0f11bdd7f1fa7751bb40e1385aad4da
 }
 
 #writing {
@@ -605,24 +694,36 @@ div a.buttons {
 
 #welcomeBox {
   display: flex;
+<<<<<<< HEAD
+=======
+  flex-direction: row;
+>>>>>>> d9dab232e0f11bdd7f1fa7751bb40e1385aad4da
   flex-wrap: wrap;
   width: 780px;
   font-family: 'Libre Baskerville', sans-serif;
   color: #F7FE27;
 }
 
-#coupled {
+/*#coupled {
   display: flex;
   flex-direction: row;
+<<<<<<< HEAD
   margin-left: 300px;
 }
+=======
+}*/
+>>>>>>> d9dab232e0f11bdd7f1fa7751bb40e1385aad4da
 
-.PS {
+/*.PS {
   margin-top: 20px;
   margin-left: 10px;
+<<<<<<< HEAD
   width: 50px;
   z-index: 1;
 }
+=======
+}*/
+>>>>>>> d9dab232e0f11bdd7f1fa7751bb40e1385aad4da
 
 @media screen and (max-width: 600px) {
   p.question {
@@ -692,6 +793,7 @@ div a.buttons {
   }
 }
 
+<<<<<<< HEAD
 #welcomeBox ul {
   list-style: none;
 }
@@ -706,15 +808,55 @@ div a.buttons {
   #coupled {
     margin-left: 0px;
   }
+=======
+.boxed {
+  margin-left: 350px;
+  width: 600px;
+}
+
+#stuff {
+  margin-top: 10%;
+}
+
+#CN {
+  font-family: 'Libre Baskerville', sans-serif;
+  color: #F7FE27;
+  list-style: none;
+  font-size: 30px;
+  margin-left: 710px;
+}
+
+@media screen and (max-width: 900px){
+  #employmentsBox {
+    margin-top: 0px;
+    margin-left: 0px;
+  }
+  #welcomeBox {
+/*    width: 400px;
+    height: 150px;
+    margin-left: 0px;
+    margin-top: 50px;*/
+  }
+/*  .Emp {
+    margin-left: 20px;
+  }*/
+/*  .pastEmp {
+    padding: 20px;
+  }*/
+>>>>>>> d9dab232e0f11bdd7f1fa7751bb40e1385aad4da
   .employeeWC {
     margin-left: 0px;
   }
   #divvy {
+<<<<<<< HEAD
     position: relative;
     width: 300px;
+=======
+    width: 400px;
+>>>>>>> d9dab232e0f11bdd7f1fa7751bb40e1385aad4da
     height: 200px;
     border: 10px;
-    padding: 10px;
+    overflow: hidden;
     word-wrap: break-word;
     overflow-y: scroll;
     text-align: center;
@@ -824,6 +966,10 @@ div a.buttons {
   margin-left: 300px;
 }
 
+#HB {
+  margin-left: 65%;
+}
+
 #hireButton:hover {
   text-decoration: none;
   transition: all 0.35s ease-in-out;
@@ -831,11 +977,45 @@ div a.buttons {
   color: #F7FE27;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1000px) {
+  #welcomeBox {
+    margin-left: 0%;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+  }
+  #WCB {
+    font-size: 30px;
+  }
+  #HB {
+    margin-left: 0%;
+  }
   #hireButton {
+<<<<<<< HEAD
     margin-left: 67px;
     margin-top: 20px;
     font-size: 20px;
+=======
+    font-size: 20px;
+    margin-left: 50px;
+  }
+  #CN {
+    font-size: 20px;
+    margin-left: 50px;
+  }
+  .boxed {
+    margin-left: 0px;
+    display: flex;
+    flex-direction: column;
+  }
+  #stuff {
+    margin-top: 0px;
+  }
+  #divvy {
+    padding: 0px;
+    margin: 0px;
+    width: 350px;
+>>>>>>> d9dab232e0f11bdd7f1fa7751bb40e1385aad4da
   }
 }
 
@@ -849,6 +1029,102 @@ div a.buttons {
   margin-left: 30px;
 }
 
+<<<<<<< HEAD
+=======
+@media screen and (max-width: 800px) {
+    #chooseEmployee {
+      flex-direction: column;
+      margin-left: 50px;
+      margin-top: 0px;
+    }
+    #chooseEmployeeHeader {
+      margin-top: 60px;
+      font-size: 13px;
+      margin-left: 25px;
+      word-wrap: normal; 
+    }
+    .pic1 {
+      width: 150px;
+      height: 150px;
+    }
+    .pic2 {
+      width: 150px;
+      height: 150px;
+    }
+    .pic3 {
+      width: 150px;
+      height: 150px;
+    }
+    #chooseEmployee h1 {
+      font-size: 30px;
+    }
+    #painterHeader {
+      margin-left: 10px;
+    }      
+}
+
+#selectEmployee {
+  position: relative;
+  width: 600px;
+  height: 600px;
+  border: 10px
+  border-color: #4CAF50;
+  padding: 10px;
+  word-wrap: break-word;
+  overflow-y: scroll;
+  text-align: center;
+  background: url(paper.jpg);
+  color: black;
+  border-radius: 10px;
+}
+
+#bricklayerBox {
+  margin-left: 1100px;
+  margin-top: 150px;
+}
+
+#chooseH1 {
+  margin-left: 100px;
+  font-family: 'Libre Baskerville', sans-serif;
+  color: #F7FE27;
+}
+
+#chooseH12 {
+  font-family: 'Libre Baskerville', sans-serif;
+  color: #F7FE27;
+  margin-left: 60px;
+}
+
+.H12 {
+  margin-left: 120px;
+  font-family: 'Libre Baskerville', sans-serif;
+  color: #F7FE27;
+}
+
+@media screen and (max-width: 800px){
+  #bricklayerBox {
+    margin-left: 10px;
+    margin-top: 50px;
+  }
+  #selectEmployee {
+    margin-left: 20px;
+    width: 300px;
+  }
+  #chooseH1 {
+    margin-left: 10px;
+    font-size: 25px;
+  }
+  #chooseH12 {
+    margin-left: 10px;
+    font-size: 25px;
+  }
+  .H12 {
+    margin-left: 10px;
+    font-size: 25px;
+  }
+}
+
+>>>>>>> d9dab232e0f11bdd7f1fa7751bb40e1385aad4da
 #loginForm {
   border-radius: 10px;
 }
@@ -893,7 +1169,11 @@ div a.buttons {
 
 [class*="col-"] {
     float: left;
+<<<<<<< HEAD
     border: 1px solid red;
+=======
+    padding: 15px;
+>>>>>>> d9dab232e0f11bdd7f1fa7751bb40e1385aad4da
 }
 
 .row::after {
@@ -902,11 +1182,30 @@ div a.buttons {
     display: table;
 }
 
+<<<<<<< HEAD
 @media only screen and (max-width: 768px) {
+=======
+.main {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  float: left;
+  margin-top: 330px;
+}
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    [class*="col-"] {
+        width: 100%;
+    }
+>>>>>>> d9dab232e0f11bdd7f1fa7751bb40e1385aad4da
     .main {
       margin-top: 50px;
       padding-right: 20px;
     }
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> d9dab232e0f11bdd7f1fa7751bb40e1385aad4da
 

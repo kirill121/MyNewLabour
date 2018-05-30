@@ -1,22 +1,33 @@
 <% include partials/header %>
 
 <div class='container'>	
+<<<<<<< HEAD
 	<div class='row'>
 		<div class="col-sm-4 col-md-4 col-lg-3 hidden-xs hidden-md hidden-sm"></div>
 		<div class="col-sm-4 col-md-4 col-lg-1 hidden-xs hidden-md hidden-sm"></div>
 		<div class="col-xs-4 col-sm-4 col-md-8 col-lg-8" id='welcomeBox'>
 			<div id='coupled'>
 				<h1 id='fonty'>Welcome <%= user.firstName[0].toUpperCase() + user.firstName.substring(1) %></h1>
+=======
+	<div class='col-lg-12' id='employerProfile'>
+		<div id='bigDiv'>	
+			<div id='welcomeBox' class="col-lg-4">
+				<h1 id='WCB'>Welcome, <%= user.firstName[0].toUpperCase() + user.firstName.substring(1) %></h1>
+>>>>>>> d9dab232e0f11bdd7f1fa7751bb40e1385aad4da
 					<div class='PS'>
-						<button type="button" class="btn btn-info">Profile Settings</button>		
+						<button type="button" class="btn btn-info">Profile Settings</button>	
 						<div class='profileSettings'>
 							<a href='/employers/update/<%= user.id %>' type="button" class="btn btn-primary">Update your profile</a>
 							<form method='post' action='/employers/delete/<%= user.id %>' id='deleteForm'>		<input type="submit" class="btn btn-primary" value="Delete your Profile">
 				        	</form>
 						</div>
 					</div>
-			</div>	
+			</div>
+			<div class="col-sm-4" id='HB'>
+				<a href="/employers/<%= user.id %>/chooseEmployee"><button id='hireButton'>Hire an employee</button></a>
+			</div>
 		</div>	
+<<<<<<< HEAD
 	</div>	
 </div>
 
@@ -78,9 +89,58 @@
 					</form>
 				<%	 }) %>
 			</div>						
+=======
+		<div id='stuff'>
+		<span id='CN'>Company Profile: <%= user.companyName %></span>
+		<div class='col-lg-4'>
+				<div id='boxes' class='boxed'>	
+					<div class='Emp' id="divvy">
+						<h4>CURRENT EMPLOYMENTS</h4>
+							<ul>
+							 <% employees.forEach( employee => { %>
+								<li id='empDetails'>Employee Name: <%= employee.firstName %></li>
+								<li id='empDetails'>Employee Surname: <%= employee.lastName %></li>
+								<li id='empDetails'>Employee Telephone Number: <%= employee.telephoneNo %></li>
+								<% if(typeof(employee.rating[0]) == 'undefined'){ %>
+									<li id='empDetails'>Employee has no rating yet</li>
+								<% } else { %>
+									<li id='empDetails'>Employee Rating: <%= employee.rating[employee.rating.length - 1] %>/5</li>
+								<%	} %>
+								<div class='popup'><button class='btn btn-primary'>Click To Rate Employee</button>
+									<div class="popuptext" id="myPopup">
+										<form method='post' action='/employers/<%= employee.id %>/employeeRate'>
+											<div id='hero'>Rate This Employee</div>
+											<i class="glyphicon glyphicon-thumbs-down"></i>
+											<input type='submit' id='inputs' name='one' value='1'>
+											<input type='submit' id='inputs' name='two' value='2'>
+											<input type='submit' id='inputs' name='three' value='3'>
+											<input type='submit' id='inputs' name='four' value='4'>
+											<input type='submit' id='inputs' name='five' value='5'>
+											<i class="glyphicon glyphicon-thumbs-up"></i>
+										</form>
+									</div>
+								</div>
+							<form method='post' action='/employers/<%= employee.id %>/employeeDelete'>
+									<input class='btn btn-primary' type="submit" value="Delete employee">
+							</form>	
+						 	 <%	 }) %>
+							</ul> 
+					</div>				
+					<div class='pastEmp' id='divvy'>
+						<h4>PAST EMPLOYMENTS</h4>
+						<% emps.forEach( employee => { %>	
+							<li>Employee Name: <%= employee.firstName %></li>
+							<form method='post' action='/employers/<%= employee.id %>/remove'>
+								<input type="submit" value="Remove">
+							</form>
+						<%	 }) %>	
+					</div>
+				</div>		
+>>>>>>> d9dab232e0f11bdd7f1fa7751bb40e1385aad4da
 		</div>
+		</div>	
 	</div>
-</div>					
+</div>				
  
 <script type="text/javascript" src="/stylesheets/viewEmployerFunctions.js"></script>
 
